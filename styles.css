@@ -1,91 +1,97 @@
+@font-face {
+  font-family: "Dank Mono";
+  src: url("./fonts/DankMono-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Dank Mono";
+  src: url("./fonts/DankMono-Italic.otf") format("opentype");
+  font-style: italic;
+}
+
 :root {
-    background-color: #1e1e1e;
-    color: #d4d4d4;
-    font-family: monospace;
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+  font-family: "Dank Mono", Consolas, "Courier New", monospace;
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    overflow-x: auto;
+  display: flex;
+  flex-direction: column;
+  overflow-x: auto;
 }
 
 p {
-    margin: 0;
-    white-space: nowrap;
-}
-
-a {
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
+  margin: 0;
+  white-space: nowrap;
 }
 
 .purple {
-    color: #c586c0;
+  color: #c586c0;
 }
 
 .light-blue {
-    color: #9cdcfe;
+  color: #9cdcfe;
 }
 
-a,
 .orange {
-    color: #ce9178;
+  color: #ce9178;
 }
 
 .blue {
-    color: #569cd6;
+  color: #569cd6;
 }
 
 .light-green {
-    color: #4ec9b0;
-}
-
-.yellow {
-    color: #dcdcaa;
+  color: #4ec9b0;
 }
 
 .green {
-    color: #b5cea8;
+  color: #b5cea8;
+}
+
+.dark-green {
+  color: #6a9955;
+}
+
+.yellow {
+  color: #dcdcaa;
 }
 
 .gray {
-    color: #808080;
+  color: #808080;
 }
 
 .new-line::after {
-    content: ' ';
-    display: block;
-    white-space: pre;
+  content: " ";
+  display: block;
+  white-space: pre;
 }
 
-[class^='indent']::before {
-    white-space: pre;
+[class^="indent"]::before {
+  white-space: pre;
 }
 
 .indent1::before {
-    content: '    ';
+  content: " ";
 }
 
 .indent2::before {
-    content: '        ';
+  content: "   ";
 }
 
 .indent3::before {
-    content: '            ';
+  content: "     ";
 }
 
 .indent4::before {
-    content: '                ';
+  content: "       ";
 }
 
 .indent5::before {
-    content: '                    ';
+  content: "         ";
 }
 
-.indent6::before {
-    content: '                        ';
+.italic {
+  font-style: italic;
 }
