@@ -50,10 +50,6 @@ p {
   color: #b5cea8;
 }
 
-.dark-green {
-  color: #6a9955;
-}
-
 .yellow {
   color: #dcdcaa;
 }
@@ -90,8 +86,4 @@ p {
 
 .indent5::before {
   content: "         ";
-}
-
-.italic {
-  font-style: italic;
 }
