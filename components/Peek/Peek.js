@@ -9,7 +9,7 @@ const Skeleton = () => {
 
   for (let i = 0; i < 9; i++) {
     lines.push(
-      <Line>
+      <Line key={i}>
         <Text spaceAtEnd />
       </Line>
     );
