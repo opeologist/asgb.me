@@ -1,4 +1,8 @@
+const basePath = process.env.NODE_ENV === "production" ? "/opeologist" : "";
+
 module.exports = {
+  basePath,
+  assetPrefix: `${basePath}/`,
   webpack: (config) => {
     config.resolve.alias = {
       ...(config.resolve.alias || {}),
