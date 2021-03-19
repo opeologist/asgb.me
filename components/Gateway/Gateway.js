@@ -29,10 +29,7 @@ export default function Gateway() {
               setIsHoveringHeader(false);
             }}
           >
-            <Text
-              color={isHoveringHeader ? "blue" : "green"}
-              style={[heading, isHoveringHeader && underline]}
-            >
+            <Text color="blue" style={[heading, underline]}>
               Aaron
             </Text>
           </Pressable>
