@@ -1,10 +1,22 @@
-import React, { useState } from "react";
-import { View, useWindowDimensions } from "react-native";
+import React, { useEffect, useRef, useState } from "react";
+import { Animated, View, useWindowDimensions } from "react-native";
 import styles from "./styles";
 
-export default function Content({ style, ...rest }) {
+export default function Content(props) {
   const { width } = useWindowDimensions();
-  const [containerWidth, setContainerWidth] = useState(0);
+  const [containerWidth, setContainerWidth] = useState(width);
+  const [visible, setVisible] = useState(false);
+  const fadeAnim = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    if (visible) {
+      Animated.timing(fadeAnim, {
+        toValue: 1,
+        duration: 500,
+        useNativeDriver: true,
+      }).start();
+    }
+  }, [visible, fadeAnim]);
 
   const { wrapper, container } = styles({
     windowWidth: width,
@@ -12,17 +24,18 @@ export default function Content({ style, ...rest }) {
   });
 
   return (
-    <View style={wrapper}>
-      <View
+    <View style={[wrapper]}>
+      <Animated.View
         onLayout={({
           nativeEvent: {
             layout: { width },
           },
         }) => {
           setContainerWidth(width);
+          setVisible(true);
         }}
-        style={[container, style]}
-        {...rest}
+        style={{ opacity: fadeAnim }}
+        {...props}
       />
     </View>
   );
