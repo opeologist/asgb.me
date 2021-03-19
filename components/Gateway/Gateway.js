@@ -8,7 +8,7 @@ import Content from "../Content";
 
 export default function Gateway() {
   const [isHoveringHeader, setIsHoveringHeader] = useState(false);
-  const router = useRouter();
+  const { push } = useRouter();
 
   const { header, heading, underline } = styles();
 
@@ -20,7 +20,7 @@ export default function Gateway() {
           <Peek />
           <Pressable
             onPress={() => {
-              router.push("/Aaron.js");
+              push("/Aaron.js");
             }}
             onHoverIn={() => {
               setIsHoveringHeader(true);
@@ -29,7 +29,10 @@ export default function Gateway() {
               setIsHoveringHeader(false);
             }}
           >
-            <Text color="blue" style={[heading, underline]}>
+            <Text
+              color={isHoveringHeader ? "blue" : "green"}
+              style={[heading, isHoveringHeader && underline]}
+            >
               Aaron
             </Text>
           </Pressable>
