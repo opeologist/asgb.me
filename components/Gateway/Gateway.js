@@ -31,7 +31,7 @@ export default function Gateway() {
           </Animated.View>
           <Link
             style={heading}
-            href="/Aaron"
+            href="/code"
             onHoverIn={() => {
               setIsPeekVisible(true);
             }}
@@ -47,6 +47,11 @@ export default function Gateway() {
         </Text>
       </Line>
       <Line>
+        <Link type="comment" style={heading} href="mailto:me@agb.engineer">
+          email
+        </Link>
+      </Line>
+      <Line>
         <Link
           type="comment"
           style={heading}
@@ -59,9 +64,9 @@ export default function Gateway() {
         <Link
           type="comment"
           style={heading}
-          href="https://github.com/opeologist"
+          href="https://github.com/opeologist/opeologist.github.io"
         >
-          github
+          source
         </Link>
       </Line>
     </Content>
