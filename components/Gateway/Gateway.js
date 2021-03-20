@@ -1,36 +1,69 @@
-import React from "react";
-import { Pressable, View } from "react-native";
-import { useRouter } from "next/router";
+import React, { useEffect, useRef, useState } from "react";
+import { Animated, View } from "react-native";
 import styles from "./styles";
 import Peek from "../Peek";
 import Text from "../Text";
 import Content from "../Content";
+import Line from "../Line";
+import Link from "../Link";
 
 export default function Gateway() {
-  const { push } = useRouter();
+  const [isPeekVisible, setIsPeekVisible] = useState(false);
+  const fadeAnim = useRef(new Animated.Value(0)).current;
 
-  const onPress = () => {
-    push("/Aaron.js");
-  };
+  useEffect(() => {
+    Animated.timing(fadeAnim, {
+      toValue: isPeekVisible ? 1 : 0,
+      duration: 500,
+      useNativeDriver: true,
+    }).start();
+  }, [isPeekVisible, fadeAnim]);
 
-  const { header, heading, underline } = styles();
+  const { heading } = styles();
 
   return (
     <Content>
-      <View style={header}>
+      <Line>
         <Text color="orange" style={heading}>{`<`}</Text>
         <View>
-          <Peek />
-          <Pressable {...{ onPress }}>
-            <Text color="blue" style={[heading, underline]}>
-              Aaron
-            </Text>
-          </Pressable>
+          <Animated.View style={{ opacity: fadeAnim }}>
+            <Peek />
+          </Animated.View>
+          <Link
+            style={heading}
+            href="/Aaron"
+            onHoverIn={() => {
+              setIsPeekVisible(true);
+            }}
+            onHoverOut={() => {
+              setIsPeekVisible(false);
+            }}
+          >
+            AGB
+          </Link>
         </View>
         <Text color="orange" style={heading}>
           {"\u00A0/>"}
         </Text>
-      </View>
+      </Line>
+      <Line>
+        <Link
+          type="comment"
+          style={heading}
+          href="https://www.linkedin.com/in/aarongb"
+        >
+          linkedin
+        </Link>
+      </Line>
+      <Line>
+        <Link
+          type="comment"
+          style={heading}
+          href="https://github.com/opeologist"
+        >
+          github
+        </Link>
+      </Line>
     </Content>
   );
 }

@@ -3,6 +3,7 @@ import { View } from "react-native";
 import styles from "./styles";
 import Line from "../Line";
 import Text from "../Text";
+import Box from "../Box";
 
 const Skeleton = () => {
   const lines = [];
@@ -32,12 +33,12 @@ export default function Peek() {
   return (
     hasMounted && (
       <View style={wrapper}>
-        <View style={container}>
+        <Box style={container}>
           <Suspense fallback={<Skeleton />}>
             <TopOfExport />
           </Suspense>
-        </View>
-        <View style={[container, type]}>
+        </Box>
+        <Box style={[container, type]}>
           <Line>
             <Text color="orange">(</Text>
             <Text color="lightGreen">alias</Text>
@@ -57,9 +58,9 @@ export default function Peek() {
             <Text color="brown" italic spaceAtEnd>
               import
             </Text>
-            <Text color="lightGreen">Aaron</Text>
+            <Text color="lightGreen">AGB</Text>
           </Line>
-        </View>
+        </Box>
       </View>
     )
   );

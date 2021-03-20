@@ -1,9 +1,9 @@
 import { StyleSheet } from "react-native";
 import { large } from "../../constants";
 
-export default function gatewayStyles() {
+export default function sourceStyles() {
   return StyleSheet.create({
-    heading: {
+    footer: {
       fontSize: large,
     },
   });

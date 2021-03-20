@@ -8,12 +8,12 @@ const normalizeNextElements = `
     font-family: "Dank Mono";
     src: url("/fonts/DankMono-Regular.otf") format("opentype");
   }
-
   @font-face {
     font-family: "Dank Mono";
     src: url("/fonts/DankMono-Italic.otf") format("opentype");
     font-style: italic;
   }
+  a::selection,
   div::selection {
     background: #003030;
   }

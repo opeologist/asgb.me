@@ -20,6 +20,9 @@ export default function textStyles() {
     darkGreen: {
       color: "#00b359",
     },
+    veryDarkGreen: {
+      color: "#1e621e",
+    },
     brown: {
       color: "#9f6934",
     },
