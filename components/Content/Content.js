@@ -18,7 +18,7 @@ export default function Content(props) {
     }
   }, [visible, fadeAnim]);
 
-  const { wrapper, container } = styles({
+  const { wrapper } = styles({
     windowWidth: width,
     containerWidth,
   });
