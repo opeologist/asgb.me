@@ -37,7 +37,7 @@ export default function Source() {
             <Text color="brown" italic spaceAtEnd>
               from
             </Text>
-            <Text color="teal">{`"@ucf/digital-media"`}</Text>
+            <Text color="teal">{'"@ucf/digital-media"'}</Text>
             <Text color="orange">;</Text>
           </Line>
           <Line>
@@ -56,7 +56,7 @@ export default function Source() {
             <Text color="brown" italic spaceAtEnd>
               from
             </Text>
-            <Text color="teal">{`"@curse/engineering"`}</Text>
+            <Text color="teal">{'"@curse/engineering"'}</Text>
             <Text color="orange">;</Text>
           </Line>
           <Line>
@@ -75,7 +75,7 @@ export default function Source() {
             <Text color="brown" italic spaceAtEnd>
               from
             </Text>
-            <Text color="teal">{`"@amazon/engineering"`}</Text>
+            <Text color="teal">{'"@amazon/engineering"'}</Text>
             <Text color="orange">;</Text>
           </Line>
           <Line>
@@ -87,7 +87,7 @@ export default function Source() {
           <Line indent={6}>
             <Text color="lightGreen">team</Text>
             <Text color="orange">=</Text>
-            <Text color="teal">{`"Mobile Growth/Engagement"`}</Text>
+            <Text color="teal">{'"Mobile Growth/Engagement"'}</Text>
           </Line>
           <Line indent={6}>
             <Text color="lightGreen">startDate</Text>

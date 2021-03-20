@@ -24,7 +24,9 @@ export default function Gateway() {
   return (
     <Content>
       <Line>
-        <Text color="orange" style={heading}>{`<`}</Text>
+        <Text color="orange" style={heading}>
+          {"<"}
+        </Text>
         <View>
           <Animated.View style={{ opacity: fadeAnim }}>
             <Peek />

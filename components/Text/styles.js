@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 export default function textStyles() {
   return StyleSheet.create({
     text: {
-      fontFamily: `"Dank Mono", Consolas, "Courier New", monospace`,
+      fontFamily: '"Dank Mono", Consolas, "Courier New", monospace',
     },
     italic: {
       fontStyle: "italic",

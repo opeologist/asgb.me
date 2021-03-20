@@ -26,12 +26,8 @@ export default function Content(props) {
   return (
     <View style={[wrapper]}>
       <Animated.View
-        onLayout={({
-          nativeEvent: {
-            layout: { width },
-          },
-        }) => {
-          setContainerWidth(width);
+        onLayout={({ nativeEvent: { layout } }) => {
+          setContainerWidth(layout.width);
           setVisible(true);
         }}
         style={{ opacity: fadeAnim }}

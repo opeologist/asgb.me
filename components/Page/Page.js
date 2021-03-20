@@ -21,7 +21,7 @@ export default function Page({ children, title = "Aaron Giordano-Barry" }) {
             <script
               async
               src="https://www.googletagmanager.com/gtag/js?id=UA-157733176-1"
-            ></script>
+            />
             <script dangerouslySetInnerHTML={{ __html: analytics }} />
           </>
         )}

@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, { Children } from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import { AppRegistry } from "react-native";
@@ -24,7 +25,7 @@ const normalizeNextElements = `
   }
 `;
 
-export default class AGBEngineerDocument extends Document {
+export default class AGBDocument extends Document {
   static async getInitialProps({ renderPage }) {
     AppRegistry.registerComponent(config.name, () => Main);
     const { getStyleElement } = AppRegistry.getApplication(config.name);

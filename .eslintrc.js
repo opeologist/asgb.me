@@ -1,10 +1,16 @@
 module.exports = {
+  root: true,
   env: {
     browser: true,
     es2021: true,
     node: true,
   },
-  extends: ["eslint:recommended", "plugin:react/recommended"],
+  extends: [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "@react-native-community",
+    "prettier",
+  ],
   ignorePatterns: ["**/.next/**/*", "**/node_modules/**/*", "**/out/**/*"],
   parserOptions: {
     ecmaFeatures: {

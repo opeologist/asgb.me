@@ -31,14 +31,14 @@ export default function TopOfExport() {
         <Text color="lightGreen" spaceAtEnd>
           name:
         </Text>
-        <Text color="teal">{`"Digital Interactive Systems"`}</Text>
+        <Text color="teal">{'"Digital Interactive Systems"'}</Text>
         <Text color="orange">,</Text>
       </Line>
       <Line indent={4}>
         <Text color="lightGreen" spaceAtEnd>
           type:
         </Text>
-        <Text color="teal">{`"Bachelor of Arts"`}</Text>
+        <Text color="teal">{'"Bachelor of Arts"'}</Text>
         <Text color="orange">,</Text>
       </Line>
       <Line indent={4}>
