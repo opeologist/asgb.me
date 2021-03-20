@@ -1,6 +1,11 @@
 import React from "react";
+import Page from "../components/Page";
 import Gateway from "../components/Gateway";
 
 export default function AGBEngineer() {
-  return <Gateway />;
+  return (
+    <Page>
+      <Gateway />
+    </Page>
+  );
 }
