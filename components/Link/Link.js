@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { View, Pressable } from "react-native";
-import { useRouter } from "next/router";
 import styles from "./styles";
 import Text from "../Text";
 
@@ -17,7 +16,6 @@ export default function Link({
   href,
   type = "default",
 }) {
-  const router = useRouter();
   const [isHovering, setIsHovering] = useState(false);
 
   const { wrapper, underline } = styles();
@@ -30,10 +28,6 @@ export default function Link({
         </Text>
       )}
       <Pressable
-        onPress={(e) => {
-          e.preventDefault();
-          router.push(href);
-        }}
         onHoverIn={() => {
           onHoverIn();
           setIsHovering(true);
