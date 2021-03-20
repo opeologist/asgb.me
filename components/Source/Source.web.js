@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import Text from "../Text";
 import Content from "../Content";
 import Line from "../Line";
 import Box from "../Box";
 import Link from "../Link";
 import styles from "./styles";
-import TopOfExport from "./TopOfExport";
 
 export default function Source() {
+  const [TopOfExport, setTopOfExport] = useState(null);
   const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
+    setTopOfExport(lazy(() => import("./TopOfExport")));
     setHasMounted(true);
   }, []);
 
@@ -80,7 +81,9 @@ export default function Source() {
           <Line>
             <Text spaceAtEnd />
           </Line>
-          <TopOfExport />
+          <Suspense fallback={null}>
+            <TopOfExport />
+          </Suspense>
           <Line indent={6}>
             <Text color="lightGreen">team</Text>
             <Text color="orange">=</Text>

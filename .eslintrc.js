@@ -9,7 +9,6 @@ module.exports = {
     "eslint:recommended",
     "plugin:react/recommended",
     "@react-native-community",
-    "prettier",
   ],
   ignorePatterns: ["**/.next/**/*", "**/node_modules/**/*", "**/out/**/*"],
   parserOptions: {
@@ -19,7 +18,7 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: "module",
   },
-  plugins: ["react"],
+  plugins: ["react", "prettier"],
   settings: {
     react: {
       version: "detect",
@@ -27,5 +26,6 @@ module.exports = {
   },
   rules: {
     "react/prop-types": "off",
+    quotes: ["error", "double"],
   },
 };
