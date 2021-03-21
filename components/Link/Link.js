@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { View, Pressable, Platform } from "react-native";
+import React, { useCallback, useState } from "react";
+import { Linking, View, Pressable, Platform, Alert } from "react-native";
 import styles from "./styles";
 import Text from "../Text";
 
@@ -18,6 +18,15 @@ export default function Link({
   navigate,
 }) {
   const [isHovering, setIsHovering] = useState(false);
+  const handleMailtoPress = useCallback(async () => {
+    const supported = await Linking.canOpenURL(href);
+
+    if (supported) {
+      await Linking.openURL(href);
+    } else {
+      Alert.alert(`can't open url: ${href}`);
+    }
+  }, [href]);
 
   const { wrapper, underline } = styles();
 
@@ -31,9 +40,13 @@ export default function Link({
       <Pressable
         onPress={() => {
           if (Platform.OS !== "web") {
-            navigate(href.substr(0, 1) === "/" ? href : "WebView", {
-              ...{ href },
-            });
+            if (href.substr(0, 6) === "mailto") {
+              handleMailtoPress();
+            } else {
+              navigate(href.substr(0, 1) === "/" ? href : "WebView", {
+                ...{ href },
+              });
+            }
           }
         }}
         onHoverIn={() => {
