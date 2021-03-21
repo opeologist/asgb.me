@@ -10,7 +10,10 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+        headerMode="none"
+        screenOptions={{ animationEnabled: false }}
+      >
         <Stack.Screen name="/" component={Gateway} />
         <Stack.Screen name="/code" component={Code} />
         <Stack.Screen name="WebView" component={WebView} />

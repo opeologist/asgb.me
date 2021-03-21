@@ -146,6 +146,9 @@ export default function Source() {
             <Text color="orange">{"}"}</Text>
           </Line>
         </Box>
+        <Line>
+          <Text comment style={footer} />
+        </Line>
         <Link type="comment" style={footer} href="/">
           home
         </Link>

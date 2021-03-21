@@ -143,6 +143,9 @@ export default function Source({ navigation: { navigate } }) {
             <Text color="orange">{"}"}</Text>
           </Line>
         </Box>
+        <Line>
+          <Text comment style={footer} />
+        </Line>
         <Link type="comment" style={footer} href="/" {...{ navigate }}>
           home
         </Link>

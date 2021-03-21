@@ -49,9 +49,15 @@ export default function Gateway() {
         </Text>
       </Line>
       <Line>
+        <Text comment style={heading} />
+      </Line>
+      <Line>
         <Link type="comment" style={heading} href="mailto:me@agb.engineer">
           email
         </Link>
+      </Line>
+      <Line>
+        <Text comment style={heading} />
       </Line>
       <Line>
         <Link
@@ -61,6 +67,9 @@ export default function Gateway() {
         >
           linkedin
         </Link>
+      </Line>
+      <Line>
+        <Text comment style={heading} />
       </Line>
       <Line>
         <Link

@@ -25,6 +25,9 @@ export default function Gateway({ navigation: { navigate } }) {
         </Text>
       </Line>
       <Line>
+        <Text comment style={heading} />
+      </Line>
+      <Line>
         <Link
           type="comment"
           style={heading}
@@ -35,6 +38,9 @@ export default function Gateway({ navigation: { navigate } }) {
         </Link>
       </Line>
       <Line>
+        <Text comment style={heading} />
+      </Line>
+      <Line>
         <Link
           type="comment"
           style={heading}
@@ -43,6 +49,9 @@ export default function Gateway({ navigation: { navigate } }) {
         >
           linkedin
         </Link>
+      </Line>
+      <Line>
+        <Text comment style={heading} />
       </Line>
       <Line>
         <Link
