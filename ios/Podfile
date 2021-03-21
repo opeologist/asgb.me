@@ -12,6 +12,8 @@ target 'AGB' do
     :hermes_enabled => false
   )
 
+  pod 'react-native-webview', :path => '../node_modules/react-native-webview'
+
   target 'AGBTests' do
     inherit! :complete
     # Pods for testing

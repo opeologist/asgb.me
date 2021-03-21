@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Pressable, Platform } from "react-native";
+import { Alert, View, Pressable, Platform } from "react-native";
 import styles from "./styles";
 import Text from "../Text";
 
@@ -31,7 +31,10 @@ export default function Link({
       <Pressable
         onPress={() => {
           if (Platform.OS !== "web") {
-            navigate(href);
+            Alert.alert(href);
+            navigate(href.substr(0, 1) === "/" ? href : "WebView", {
+              ...{ href },
+            });
           }
         }}
         onHoverIn={() => {
