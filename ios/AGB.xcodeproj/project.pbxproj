@@ -14,6 +14,10 @@
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		E464B4D7F11C683B4EBA3528 /* libPods-AGB-AGBTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E3A90F83F100BD2AAE11369 /* libPods-AGB-AGBTests.a */; };
 		EFB361277A92DB0530BC4050 /* libPods-AGB.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD81DBEF40EBE202FE429BD8 /* libPods-AGB.a */; };
+		2DCD41E88C6D4589ADD41A94 /* DankMono-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E0E8B50A41FC4A248E1049EB /* DankMono-Italic.otf */; };
+		BB113DF715D64AA38C0067AF /* DankMono-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = AFCB7CD78B1547C781FD3C55 /* DankMono-Regular.otf */; };
+		DED3D24B975C43278E238810 /* DankMono-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0FE3E3F6DAFF444C91EDEA2D /* DankMono-Italic.otf */; };
+		F2590BFBE1724AC5B0937D78 /* DankMono-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = FA62AAB2B9994EC8A17D28DF /* DankMono-Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,10 @@
 		CD81DBEF40EBE202FE429BD8 /* libPods-AGB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AGB.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD81896B5F0BE1C7117EF2B2 /* Pods-AGB-AGBTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AGB-AGBTests.release.xcconfig"; path = "Target Support Files/Pods-AGB-AGBTests/Pods-AGB-AGBTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		E0E8B50A41FC4A248E1049EB /* DankMono-Italic.otf */ = {isa = PBXFileReference; name = "DankMono-Italic.otf"; path = "../public/fonts/DankMono-Italic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		AFCB7CD78B1547C781FD3C55 /* DankMono-Regular.otf */ = {isa = PBXFileReference; name = "DankMono-Regular.otf"; path = "../public/fonts/DankMono-Regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		0FE3E3F6DAFF444C91EDEA2D /* DankMono-Italic.otf */ = {isa = PBXFileReference; name = "DankMono-Italic.otf"; path = "../public/fonts/DankMono/DankMono-Italic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		FA62AAB2B9994EC8A17D28DF /* DankMono-Regular.otf */ = {isa = PBXFileReference; name = "DankMono-Regular.otf"; path = "../public/fonts/DankMono/DankMono-Regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +142,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				0065D77F4A005EE8F576B38F /* Pods */,
+				AA2C0EFC9BB643FE9C6B76ED /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -148,6 +157,18 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		AA2C0EFC9BB643FE9C6B76ED /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				E0E8B50A41FC4A248E1049EB /* DankMono-Italic.otf */,
+				AFCB7CD78B1547C781FD3C55 /* DankMono-Regular.otf */,
+				0FE3E3F6DAFF444C91EDEA2D /* DankMono-Italic.otf */,
+				FA62AAB2B9994EC8A17D28DF /* DankMono-Regular.otf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -245,6 +266,10 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				2DCD41E88C6D4589ADD41A94 /* DankMono-Italic.otf in Resources */,
+				BB113DF715D64AA38C0067AF /* DankMono-Regular.otf in Resources */,
+				DED3D24B975C43278E238810 /* DankMono-Italic.otf in Resources */,
+				F2590BFBE1724AC5B0937D78 /* DankMono-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

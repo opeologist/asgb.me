@@ -3,10 +3,10 @@ import { StyleSheet } from "react-native";
 export default function textStyles() {
   return StyleSheet.create({
     text: {
-      fontFamily: '"Dank Mono", Consolas, "Courier New", monospace',
+      fontFamily: "DankMono-Regular",
     },
     italic: {
-      fontStyle: "italic",
+      fontFamily: "DankMono-Italic",
     },
     orange: {
       color: "#ffb84d",

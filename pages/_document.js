@@ -6,12 +6,12 @@ import config from "../app.json";
 // Force Next-generated DOM elements to fill their parent's height
 const normalizeNextElements = `
   @font-face {
-    font-family: "Dank Mono";
-    src: url("/fonts/DankMono-Regular.otf") format("opentype");
+    font-family: "DankMono-Regular";
+    src: url("/fonts/DankMono/DankMono-Regular.otf") format("opentype");
   }
   @font-face {
-    font-family: "Dank Mono";
-    src: url("/fonts/DankMono-Italic.otf") format("opentype");
+    font-family: "DankMono-Italic";
+    src: url("/fonts/DankMono/DankMono-Italic.otf") format("opentype");
     font-style: italic;
   }
   a::selection,
