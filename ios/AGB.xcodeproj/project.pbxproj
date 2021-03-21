@@ -12,11 +12,9 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		DED3D24B975C43278E238810 /* DankMono-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0FE3E3F6DAFF444C91EDEA2D /* DankMono-Italic.otf */; };
 		E464B4D7F11C683B4EBA3528 /* libPods-AGB-AGBTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E3A90F83F100BD2AAE11369 /* libPods-AGB-AGBTests.a */; };
 		EFB361277A92DB0530BC4050 /* libPods-AGB.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD81DBEF40EBE202FE429BD8 /* libPods-AGB.a */; };
-		2DCD41E88C6D4589ADD41A94 /* DankMono-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E0E8B50A41FC4A248E1049EB /* DankMono-Italic.otf */; };
-		BB113DF715D64AA38C0067AF /* DankMono-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = AFCB7CD78B1547C781FD3C55 /* DankMono-Regular.otf */; };
-		DED3D24B975C43278E238810 /* DankMono-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0FE3E3F6DAFF444C91EDEA2D /* DankMono-Italic.otf */; };
 		F2590BFBE1724AC5B0937D78 /* DankMono-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = FA62AAB2B9994EC8A17D28DF /* DankMono-Regular.otf */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +32,7 @@
 		00E356EE1AD99517003FC87E /* AGBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AGBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* AGBTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AGBTests.m; sourceTree = "<group>"; };
+		0FE3E3F6DAFF444C91EDEA2D /* DankMono-Italic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DankMono-Italic.otf"; path = "../public/fonts/DankMono/DankMono-Italic.otf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* AGB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AGB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = AGB/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = AGB/AppDelegate.m; sourceTree = "<group>"; };
@@ -44,14 +43,13 @@
 		7E390EBD7726CFBA9D9D0646 /* Pods-AGB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AGB.debug.xcconfig"; path = "Target Support Files/Pods-AGB/Pods-AGB.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = AGB/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E3A90F83F100BD2AAE11369 /* libPods-AGB-AGBTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AGB-AGBTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFCB7CD78B1547C781FD3C55 /* DankMono-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DankMono-Regular.otf"; path = "../public/fonts/DankMono-Regular.otf"; sourceTree = "<group>"; };
 		C9CFEF8CFBE46241DF16A4C3 /* Pods-AGB-AGBTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AGB-AGBTests.debug.xcconfig"; path = "Target Support Files/Pods-AGB-AGBTests/Pods-AGB-AGBTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CD81DBEF40EBE202FE429BD8 /* libPods-AGB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AGB.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD81896B5F0BE1C7117EF2B2 /* Pods-AGB-AGBTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AGB-AGBTests.release.xcconfig"; path = "Target Support Files/Pods-AGB-AGBTests/Pods-AGB-AGBTests.release.xcconfig"; sourceTree = "<group>"; };
+		E0E8B50A41FC4A248E1049EB /* DankMono-Italic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DankMono-Italic.otf"; path = "../public/fonts/DankMono-Italic.otf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		E0E8B50A41FC4A248E1049EB /* DankMono-Italic.otf */ = {isa = PBXFileReference; name = "DankMono-Italic.otf"; path = "../public/fonts/DankMono-Italic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		AFCB7CD78B1547C781FD3C55 /* DankMono-Regular.otf */ = {isa = PBXFileReference; name = "DankMono-Regular.otf"; path = "../public/fonts/DankMono-Regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		0FE3E3F6DAFF444C91EDEA2D /* DankMono-Italic.otf */ = {isa = PBXFileReference; name = "DankMono-Italic.otf"; path = "../public/fonts/DankMono/DankMono-Italic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		FA62AAB2B9994EC8A17D28DF /* DankMono-Regular.otf */ = {isa = PBXFileReference; name = "DankMono-Regular.otf"; path = "../public/fonts/DankMono/DankMono-Regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		FA62AAB2B9994EC8A17D28DF /* DankMono-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DankMono-Regular.otf"; path = "../public/fonts/DankMono/DankMono-Regular.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +80,6 @@
 				C9CFEF8CFBE46241DF16A4C3 /* Pods-AGB-AGBTests.debug.xcconfig */,
 				DD81896B5F0BE1C7117EF2B2 /* Pods-AGB-AGBTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -159,7 +156,7 @@
 			sourceTree = "<group>";
 		};
 		AA2C0EFC9BB643FE9C6B76ED /* Resources */ = {
-			isa = "PBXGroup";
+			isa = PBXGroup;
 			children = (
 				E0E8B50A41FC4A248E1049EB /* DankMono-Italic.otf */,
 				AFCB7CD78B1547C781FD3C55 /* DankMono-Regular.otf */,
@@ -168,7 +165,6 @@
 			);
 			name = Resources;
 			sourceTree = "<group>";
-			path = "";
 		};
 /* End PBXGroup section */
 
@@ -266,8 +262,6 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				2DCD41E88C6D4589ADD41A94 /* DankMono-Italic.otf in Resources */,
-				BB113DF715D64AA38C0067AF /* DankMono-Regular.otf in Resources */,
 				DED3D24B975C43278E238810 /* DankMono-Italic.otf in Resources */,
 				F2590BFBE1724AC5B0937D78 /* DankMono-Regular.otf in Resources */,
 			);
