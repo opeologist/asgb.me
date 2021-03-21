@@ -8,9 +8,9 @@
     "lint": "eslint .",
     "export": "cross-env AGB_ENV=web next build && next export",
     "test": "jest",
-    "android": "cross-env AGB_ENV=app react-native run-android",
-    "ios": "cross-env AGB_ENV=app react-native run-ios",
-    "start": "cross-env AGB_ENV=app react-native start"
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start"
   },
   "author": "",
   "license": "ISC",

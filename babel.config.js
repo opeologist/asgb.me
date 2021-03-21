@@ -1,17 +1,17 @@
 module.exports = (api) => {
-  api.cache(true);
+  api.cache(false);
 
   const plugins = [];
 
-  if (process.env.AGB_ENV !== "app") {
+  if (process.env.AGB_ENV === "web") {
     plugins.push(["react-native-web", { commonjs: true }]);
   }
 
   return {
     presets: [
-      process.env.AGB_ENV === "app"
-        ? "module:metro-react-native-babel-preset"
-        : "next/babel",
+      process.env.AGB_ENV === "web"
+        ? "next/babel"
+        : "module:metro-react-native-babel-preset",
     ],
     plugins,
   };
