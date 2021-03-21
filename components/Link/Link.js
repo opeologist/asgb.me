@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Pressable } from "react-native";
+import { View, Pressable, Platform } from "react-native";
 import styles from "./styles";
 import Text from "../Text";
 
@@ -15,6 +15,7 @@ export default function Link({
   style,
   href,
   type = "default",
+  navigate,
 }) {
   const [isHovering, setIsHovering] = useState(false);
 
@@ -28,6 +29,11 @@ export default function Link({
         </Text>
       )}
       <Pressable
+        onPress={() => {
+          if (Platform.OS !== "web") {
+            navigate(href);
+          }
+        }}
         onHoverIn={() => {
           onHoverIn();
           setIsHovering(true);

@@ -6,7 +6,7 @@ import Content from "../Content";
 import Line from "../Line";
 import Link from "../Link";
 
-export default function Gateway() {
+export default function Gateway({ navigation: { navigate } }) {
   const { heading } = styles();
 
   return (
@@ -16,14 +16,21 @@ export default function Gateway() {
           {"<"}
         </Text>
         <View>
-          <Link style={heading}>AGB</Link>
+          <Link style={heading} href="/code" {...{ navigate }}>
+            AGB
+          </Link>
         </View>
         <Text color="orange" style={heading}>
           {"\u00A0/>"}
         </Text>
       </Line>
       <Line>
-        <Link type="comment" style={heading} href="mailto:me@agb.engineer">
+        <Link
+          type="comment"
+          style={heading}
+          href="mailto:me@agb.engineer"
+          {...{ navigate }}
+        >
           email
         </Link>
       </Line>
@@ -32,6 +39,7 @@ export default function Gateway() {
           type="comment"
           style={heading}
           href="https://www.linkedin.com/in/aarongb"
+          {...{ navigate }}
         >
           linkedin
         </Link>
@@ -41,6 +49,7 @@ export default function Gateway() {
           type="comment"
           style={heading}
           href="https://github.com/opeologist/opeologist.github.io"
+          {...{ navigate }}
         >
           source
         </Link>

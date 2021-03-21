@@ -7,7 +7,7 @@ import Link from "../Link";
 import styles from "./styles";
 import TopOfExport from "./TopOfExport";
 
-export default function Source() {
+export default function Source({ navigation: { navigate } }) {
   const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
@@ -143,7 +143,7 @@ export default function Source() {
             <Text color="orange">{"}"}</Text>
           </Line>
         </Box>
-        <Link type="comment" style={footer} href="/">
+        <Link type="comment" style={footer} href="/" {...{ navigate }}>
           home
         </Link>
       </Content>
