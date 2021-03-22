@@ -49,7 +49,7 @@ export default function Gateway() {
         </Text>
       </Line>
       <Line>
-        <Text comment style={heading} />
+        <Text italic comment style={heading} />
       </Line>
       <Line>
         <Link type="comment" style={heading} href="mailto:me@agb.engineer">
@@ -57,7 +57,7 @@ export default function Gateway() {
         </Link>
       </Line>
       <Line>
-        <Text comment style={heading} />
+        <Text italic comment style={heading} />
       </Line>
       <Line>
         <Link
@@ -69,7 +69,7 @@ export default function Gateway() {
         </Link>
       </Line>
       <Line>
-        <Text comment style={heading} />
+        <Text italic comment style={heading} />
       </Line>
       <Line>
         <Link
