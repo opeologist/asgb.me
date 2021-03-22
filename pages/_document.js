@@ -12,7 +12,6 @@ const normalizeNextElements = `
   @font-face {
     font-family: "DankMono-Italic";
     src: url("/fonts/DankMono/DankMono-Italic.otf") format("opentype");
-    font-style: italic;
   }
   a::selection,
   div::selection {
