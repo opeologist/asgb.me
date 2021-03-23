@@ -149,8 +149,8 @@ android {
         applicationId "com.agb.engineer"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 3
-        versionName "3.0"
+        versionCode 4
+        versionName "4.0"
     }
     splits {
         abi {
