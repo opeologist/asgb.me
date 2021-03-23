@@ -58,6 +58,9 @@ buck-out/
 # CocoaPods
 /ios/Pods/
 
-#next
+# next
 .next
 out
+
+# android studio
+android/app/release
