@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Animated, View } from "react-native";
+import { deviceType } from "detect-it";
 import styles from "./styles";
 import Peek from "../Peek";
 import Text from "../Text";
@@ -29,7 +30,7 @@ export default function Gateway() {
         </Text>
         <View>
           <Animated.View style={{ opacity: fadeAnim }}>
-            <Peek />
+            {deviceType === "mouseOnly" && <Peek />}
           </Animated.View>
           <Link
             style={heading}
