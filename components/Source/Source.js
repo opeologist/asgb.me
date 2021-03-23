@@ -143,7 +143,7 @@ export default function Source({ navigation: { navigate } }) {
           <Line indent={10}>
             <Text color="lightGreen">team</Text>
             <Text color="orange">=</Text>
-            <Text color="teal">{'"Core"'}</Text>
+            <Text color="teal">{'"Product"'}</Text>
           </Line>
           <Line indent={10}>
             <Text color="lightGreen">startDate</Text>
