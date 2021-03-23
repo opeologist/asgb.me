@@ -146,9 +146,11 @@ export default function Source({ navigation: { navigate } }) {
         <Line>
           <Text italic comment style={footer} />
         </Line>
-        <Link type="comment" style={footer} href="/" {...{ navigate }}>
-          home
-        </Link>
+        <Line>
+          <Link type="comment" style={footer} href="/" {...{ navigate }}>
+            home
+          </Link>
+        </Line>
       </Content>
     )
   );

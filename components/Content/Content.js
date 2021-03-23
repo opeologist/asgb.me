@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Animated, View, useWindowDimensions } from "react-native";
+import { Animated, ScrollView, useWindowDimensions } from "react-native";
 import styles from "./styles";
 
 export default function Content(props) {
@@ -18,13 +18,17 @@ export default function Content(props) {
     }
   }, [visible, fadeAnim]);
 
-  const { wrapper } = styles({
+  const { wrapper, contentContainer } = styles({
     windowWidth: width,
     containerWidth,
   });
 
   return (
-    <View style={[wrapper]}>
+    <ScrollView
+      horizontal
+      style={wrapper}
+      contentContainerStyle={contentContainer}
+    >
       <Animated.View
         onLayout={({ nativeEvent: { layout } }) => {
           setContainerWidth(layout.width);
@@ -33,6 +37,6 @@ export default function Content(props) {
         style={{ opacity: fadeAnim }}
         {...props}
       />
-    </View>
+    </ScrollView>
   );
 }
