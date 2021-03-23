@@ -18,7 +18,7 @@ export default function Link({
   navigate,
 }) {
   const [isHovering, setIsHovering] = useState(false);
-  const handleMailtoPress = useCallback(async () => {
+  const handleExternalPress = useCallback(async () => {
     const supported = await Linking.canOpenURL(href);
 
     if (supported) {
@@ -40,10 +40,10 @@ export default function Link({
       <Pressable
         onPress={() => {
           if (Platform.OS !== "web") {
-            if (href.substr(0, 6) === "mailto") {
-              handleMailtoPress();
+            if (href.substr(0, 1) !== "/") {
+              handleExternalPress();
             } else {
-              navigate(href.substr(0, 1) === "/" ? href : "WebView", {
+              navigate(href, {
                 ...{ href },
               });
             }
