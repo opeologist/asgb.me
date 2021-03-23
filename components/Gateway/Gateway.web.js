@@ -52,6 +52,18 @@ export default function Gateway() {
         <Text italic comment style={heading} />
       </Line>
       <Line>
+        <Link
+          type="comment"
+          style={heading}
+          href="https://raw.githubusercontent.com/opeologist/opeologist.github.io/master/Aaron-Giordano-Barry-Resume.pdf"
+        >
+          resume
+        </Link>
+      </Line>
+      <Line>
+        <Text italic comment style={heading} />
+      </Line>
+      <Line>
         <Link type="comment" style={heading} href="mailto:me@agb.engineer">
           email
         </Link>

@@ -111,16 +111,60 @@ export default function Source() {
           <Line indent={8}>
             <Text color="orange">{"<"}</Text>
             <Text color="darkGreen" spaceAtEnd>
-              SeniorWebDeveloper
+              FrontEndEngineerII
             </Text>
+          </Line>
+          <Line indent={10}>
+            <Text color="lightGreen">team</Text>
+            <Text color="orange">=</Text>
+            <Text color="teal">{'"Woot! Experience"'}</Text>
+          </Line>
+          <Line indent={10}>
+            <Text color="lightGreen">startDate</Text>
+            <Text color="orange">{"={"}</Text>
+            <Text color="yellow" spaceAtEnd>
+              new
+            </Text>
+            <Text color="darkGreen">Date</Text>
+            <Text color="orange">(</Text>
+            <Text color="pink">2016</Text>
+            <Text color="orange" spaceAtEnd>
+              ,
+            </Text>
+            <Text color="pink">9</Text>
+            <Text color="orange">{")}"}</Text>
+          </Line>
+          <Line indent={8}>
             <Text color="orange">{"/>,"}</Text>
           </Line>
           <Line indent={8}>
             <Text color="orange">{"<"}</Text>
             <Text color="darkGreen" spaceAtEnd>
-              FrontEndEngineerII
+              SeniorWebDeveloper
             </Text>
-            <Text color="orange">{"/>"}</Text>
+          </Line>
+          <Line indent={10}>
+            <Text color="lightGreen">team</Text>
+            <Text color="orange">=</Text>
+            <Text color="teal">{'"Core"'}</Text>
+          </Line>
+          <Line indent={10}>
+            <Text color="lightGreen">startDate</Text>
+            <Text color="orange">{"={"}</Text>
+            <Text color="yellow" spaceAtEnd>
+              new
+            </Text>
+            <Text color="darkGreen">Date</Text>
+            <Text color="orange">(</Text>
+            <Text color="pink">2014</Text>
+            <Text color="orange" spaceAtEnd>
+              ,
+            </Text>
+            <Text color="pink">3</Text>
+            <Text color="orange">{")}"}</Text>
+          </Line>
+          <Line indent={8}>
+            <Text color="orange">{"/>,"}</Text>
           </Line>
           <Line indent={6}>
             <Text color="orange">{"]}"}</Text>

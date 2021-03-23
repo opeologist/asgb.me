@@ -43,10 +43,19 @@ export default function TopOfExport() {
       </Line>
       <Line indent={4}>
         <Text color="lightGreen" spaceAtEnd>
-          year:
+          date:
         </Text>
+        <Text color="yellow" spaceAtEnd>
+          new
+        </Text>
+        <Text color="darkGreen">Date</Text>
+        <Text color="orange">(</Text>
         <Text color="pink">2013</Text>
-        <Text color="orange">,</Text>
+        <Text color="orange" spaceAtEnd>
+          ,
+        </Text>
+        <Text color="pink">12</Text>
+        <Text color="orange">{"),"}</Text>
       </Line>
       <Line indent={2}>
         <Text color="orange">{"});"}</Text>
