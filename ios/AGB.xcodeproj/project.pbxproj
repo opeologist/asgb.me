@@ -14,6 +14,10 @@
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		DED3D24B975C43278E238810 /* DankMono-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0FE3E3F6DAFF444C91EDEA2D /* DankMono-Italic.otf */; };
 		E464B4D7F11C683B4EBA3528 /* libPods-AGB-AGBTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E3A90F83F100BD2AAE11369 /* libPods-AGB-AGBTests.a */; };
+		E527D74A26164D8000CD49E6 /* Info_Release.plist in Resources */ = {isa = PBXBuildFile; fileRef = E527D74826164D8000CD49E6 /* Info_Release.plist */; };
+		E527D74B26164D8000CD49E6 /* Info_Release.plist in Resources */ = {isa = PBXBuildFile; fileRef = E527D74826164D8000CD49E6 /* Info_Release.plist */; };
+		E527D74C26164D8000CD49E6 /* Info_Debug.plist in Resources */ = {isa = PBXBuildFile; fileRef = E527D74926164D8000CD49E6 /* Info_Debug.plist */; };
+		E527D74D26164D8000CD49E6 /* Info_Debug.plist in Resources */ = {isa = PBXBuildFile; fileRef = E527D74926164D8000CD49E6 /* Info_Debug.plist */; };
 		EFB361277A92DB0530BC4050 /* libPods-AGB.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD81DBEF40EBE202FE429BD8 /* libPods-AGB.a */; };
 		F2590BFBE1724AC5B0937D78 /* DankMono-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = FA62AAB2B9994EC8A17D28DF /* DankMono-Regular.otf */; };
 /* End PBXBuildFile section */
@@ -30,14 +34,12 @@
 
 /* Begin PBXFileReference section */
 		00E356EE1AD99517003FC87E /* AGBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AGBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* AGBTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AGBTests.m; sourceTree = "<group>"; };
 		0FE3E3F6DAFF444C91EDEA2D /* DankMono-Italic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DankMono-Italic.otf"; path = "../public/fonts/DankMono/DankMono-Italic.otf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* AGB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AGB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = AGB/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = AGB/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = AGB/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = AGB/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = AGB/main.m; sourceTree = "<group>"; };
 		49FEDB47308DF6540240A80E /* Pods-AGB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AGB.release.xcconfig"; path = "Target Support Files/Pods-AGB/Pods-AGB.release.xcconfig"; sourceTree = "<group>"; };
 		7E390EBD7726CFBA9D9D0646 /* Pods-AGB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AGB.debug.xcconfig"; path = "Target Support Files/Pods-AGB/Pods-AGB.debug.xcconfig"; sourceTree = "<group>"; };
@@ -46,6 +48,8 @@
 		C9CFEF8CFBE46241DF16A4C3 /* Pods-AGB-AGBTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AGB-AGBTests.debug.xcconfig"; path = "Target Support Files/Pods-AGB-AGBTests/Pods-AGB-AGBTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CD81DBEF40EBE202FE429BD8 /* libPods-AGB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AGB.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD81896B5F0BE1C7117EF2B2 /* Pods-AGB-AGBTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AGB-AGBTests.release.xcconfig"; path = "Target Support Files/Pods-AGB-AGBTests/Pods-AGB-AGBTests.release.xcconfig"; sourceTree = "<group>"; };
+		E527D74826164D8000CD49E6 /* Info_Release.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info_Release.plist; path = AGB/Info_Release.plist; sourceTree = "<group>"; };
+		E527D74926164D8000CD49E6 /* Info_Debug.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info_Debug.plist; path = AGB/Info_Debug.plist; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		FA62AAB2B9994EC8A17D28DF /* DankMono-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DankMono-Regular.otf"; path = "../public/fonts/DankMono/DankMono-Regular.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,21 +94,14 @@
 			path = AGBTests;
 			sourceTree = "<group>";
 		};
-		00E356F01AD99517003FC87E /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				00E356F11AD99517003FC87E /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		13B07FAE1A68108700A75B9A /* AGB */ = {
 			isa = PBXGroup;
 			children = (
+				E527D74926164D8000CD49E6 /* Info_Debug.plist */,
+				E527D74826164D8000CD49E6 /* Info_Release.plist */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
-				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
@@ -249,6 +246,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E527D74D26164D8000CD49E6 /* Info_Debug.plist in Resources */,
+				E527D74B26164D8000CD49E6 /* Info_Release.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +258,8 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				DED3D24B975C43278E238810 /* DankMono-Italic.otf in Resources */,
+				E527D74A26164D8000CD49E6 /* Info_Release.plist in Resources */,
+				E527D74C26164D8000CD49E6 /* Info_Debug.plist in Resources */,
 				F2590BFBE1724AC5B0937D78 /* DankMono-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -451,7 +452,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = AGBTests/Info.plist;
+				INFOPLIST_FILE = AGBTests/Info_Debug.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -475,7 +476,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = AGBTests/Info.plist;
+				INFOPLIST_FILE = AGBTests/Info_Release.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -502,7 +503,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MKS6ALM87V;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = AGB/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/AGB/Info_Debug.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -528,7 +529,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MKS6ALM87V;
-				INFOPLIST_FILE = AGB/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/AGB/Info_Debug.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
