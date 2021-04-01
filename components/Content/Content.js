@@ -1,12 +1,22 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Animated, ScrollView, useWindowDimensions } from "react-native";
+import { Animated, ScrollView, View, useWindowDimensions } from "react-native";
 import styles from "./styles";
 
-export default function Content(props) {
+export default function Content({ scrollView, ...rest }) {
   const { width } = useWindowDimensions();
   const [containerWidth, setContainerWidth] = useState(width);
   const [visible, setVisible] = useState(false);
   const fadeAnim = useRef(new Animated.Value(0)).current;
+  const renderChildren = () => (
+    <Animated.View
+      onLayout={({ nativeEvent: { layout } }) => {
+        setContainerWidth(layout.width);
+        setVisible(true);
+      }}
+      style={{ opacity: fadeAnim }}
+      {...rest}
+    />
+  );
 
   useEffect(() => {
     if (visible) {
@@ -23,20 +33,15 @@ export default function Content(props) {
     containerWidth,
   });
 
-  return (
+  return scrollView ? (
     <ScrollView
       horizontal
       style={wrapper}
       contentContainerStyle={contentContainer}
     >
-      <Animated.View
-        onLayout={({ nativeEvent: { layout } }) => {
-          setContainerWidth(layout.width);
-          setVisible(true);
-        }}
-        style={{ opacity: fadeAnim }}
-        {...props}
-      />
+      {renderChildren()}
     </ScrollView>
+  ) : (
+    <View style={contentContainer}>{renderChildren()}</View>
   );
 }

@@ -19,7 +19,7 @@ export default function Source() {
 
   return (
     hasMounted && (
-      <Content>
+      <Content scrollView>
         <Box>
           <Line>
             <Text color="brown" italic spaceAtEnd>

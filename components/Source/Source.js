@@ -18,7 +18,7 @@ export default function Source({ navigation: { navigate } }) {
 
   return (
     hasMounted && (
-      <Content>
+      <Content scrollView>
         <Box>
           <Line>
             <Text color="brown" italic spaceAtEnd>
