@@ -1,4 +1,4 @@
-package com.agb;
+package com.agb.engineer;
 
 import com.facebook.react.ReactActivity;
 
