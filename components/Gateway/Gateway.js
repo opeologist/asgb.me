@@ -31,7 +31,7 @@ export default function Gateway({ navigation: { navigate } }) {
         <Link
           type="comment"
           style={heading}
-          href="https://raw.githubusercontent.com/opeologist/opeologist.github.io/master/Aaron-Giordano-Barry-Resume.pdf"
+          href="https://raw.githubusercontent.com/opeologist/opeologist.github.io/mainline/Aaron-Giordano-Barry-Resume.pdf"
         >
           resume
         </Link>
