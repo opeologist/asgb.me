@@ -1,12 +1,12 @@
 {
-  "name": "agb",
+  "name": "asgb",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "cross-env AGB_ENV=web next",
+    "dev": "cross-env ASGB_ENV=web next",
     "lint": "eslint .",
-    "export": "cross-env AGB_ENV=web next build && next export",
+    "export": "cross-env ASGB_ENV=web next build && next export",
     "test": "jest",
     "android": "react-native run-android",
     "ios": "react-native run-ios",

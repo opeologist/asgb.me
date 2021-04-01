@@ -42,7 +42,7 @@ export default function Gateway() {
               setIsPeekVisible(false);
             }}
           >
-            AGB
+            ASGB
           </Link>
         </View>
         <Text color="orange" style={heading}>
@@ -65,7 +65,7 @@ export default function Gateway() {
         <Text italic comment style={heading} />
       </Line>
       <Line>
-        <Link type="comment" style={heading} href="mailto:me@agb.engineer">
+        <Link type="comment" style={heading} href="mailto:email@asgb.me">
           email
         </Link>
       </Line>
@@ -76,7 +76,7 @@ export default function Gateway() {
         <Link
           type="comment"
           style={heading}
-          href="https://www.linkedin.com/in/aarongb"
+          href="https://www.linkedin.com/in/asgb"
         >
           linkedin
         </Link>

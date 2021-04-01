@@ -17,7 +17,7 @@ export default function Gateway({ navigation: { navigate } }) {
         </Text>
         <View>
           <Link style={heading} href="/code" {...{ navigate }}>
-            AGB
+            ASGB
           </Link>
         </View>
         <Text color="orange" style={heading}>
@@ -43,7 +43,7 @@ export default function Gateway({ navigation: { navigate } }) {
         <Link
           type="comment"
           style={heading}
-          href="mailto:me@agb.engineer"
+          href="mailto:email@asgb.me"
           {...{ navigate }}
         >
           email
@@ -56,7 +56,7 @@ export default function Gateway({ navigation: { navigate } }) {
         <Link
           type="comment"
           style={heading}
-          href="https://www.linkedin.com/in/aarongb"
+          href="https://www.linkedin.com/in/asgb"
           {...{ navigate }}
         >
           linkedin

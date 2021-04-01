@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "AGB.app"
-               BlueprintName = "AGB"
-               ReferencedContainer = "container:AGB.xcodeproj">
+               BuildableName = "ASGB.app"
+               BlueprintName = "ASGB"
+               ReferencedContainer = "container:ASGB.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,15 +33,15 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "AGBTests.xctest"
-               BlueprintName = "AGBTests"
-               ReferencedContainer = "container:AGB.xcodeproj">
+               BuildableName = "ASGBTests.xctest"
+               BlueprintName = "ASGBTests"
+               ReferencedContainer = "container:ASGB.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Release"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "AGB.app"
-            BlueprintName = "AGB"
-            ReferencedContainer = "container:AGB.xcodeproj">
+            BuildableName = "ASGB.app"
+            BlueprintName = "ASGB"
+            ReferencedContainer = "container:ASGB.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "AGB.app"
-            BlueprintName = "AGB"
-            ReferencedContainer = "container:AGB.xcodeproj">
+            BuildableName = "ASGB.app"
+            BlueprintName = "ASGB"
+            ReferencedContainer = "container:ASGB.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

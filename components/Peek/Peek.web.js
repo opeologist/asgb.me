@@ -58,7 +58,7 @@ export default function Peek() {
             <Text color="brown" italic spaceAtEnd>
               import
             </Text>
-            <Text color="lightGreen">AGB</Text>
+            <Text color="lightGreen">ASGB</Text>
           </Line>
         </Box>
       </View>

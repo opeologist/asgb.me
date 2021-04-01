@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 
-export default function AGBApp({ Component, pageProps }) {
+export default function ASGBApp({ Component, pageProps }) {
   return (
     <>
       <Head>

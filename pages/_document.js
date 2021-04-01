@@ -24,7 +24,7 @@ const normalizeNextElements = `
   }
 `;
 
-export default class AGBDocument extends Document {
+export default class ASGBDocument extends Document {
   static async getInitialProps({ renderPage }) {
     AppRegistry.registerComponent(config.name, () => Main);
     const { getStyleElement } = AppRegistry.getApplication(config.name);
