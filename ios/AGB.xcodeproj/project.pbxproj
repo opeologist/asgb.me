@@ -89,7 +89,6 @@
 			isa = PBXGroup;
 			children = (
 				00E356F21AD99517003FC87E /* AGBTests.m */,
-				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
 			path = AGBTests;
 			sourceTree = "<group>";
@@ -279,7 +278,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
+			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n\nif [ \"${CONFIGURATION}\" == \"Debug\" ]; then\n export SKIP_BUNDLING=true\nfi\n";
 		};
 		166D9D47DE04B99790FD990E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
