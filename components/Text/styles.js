@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 export default function textStyles() {
   return StyleSheet.create({
-    text: {
+    base: {
       fontFamily: "DankMono-Regular",
     },
     italic: {

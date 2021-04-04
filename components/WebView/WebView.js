@@ -7,7 +7,6 @@ export default function WebView({
   route: {
     params: { href },
   },
-  navigation,
 }) {
   const { webView } = styles();
 

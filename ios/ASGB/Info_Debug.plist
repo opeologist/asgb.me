@@ -37,6 +37,8 @@
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
+	<key>NSCameraUsageDescription</key>
+	<string>The camera is needed for AR functionality</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>DankMono-Italic.otf</string>

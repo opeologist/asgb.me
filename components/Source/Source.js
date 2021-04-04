@@ -1,201 +1,252 @@
 import React, { useEffect, useState } from "react";
 import Text from "../Text";
-import Content from "../Content";
 import Line from "../Line";
 import Box from "../Box";
-import Link from "../Link";
-import styles from "./styles";
 import TopOfExport from "./TopOfExport";
 
-export default function Source({ navigation: { navigate } }) {
+export default function Source() {
   const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
     setHasMounted(true);
   }, []);
 
-  const { footer } = styles();
-
   return (
     hasMounted && (
-      <Content scrollView>
-        <Box>
-          <Line>
-            <Text color="brown" italic spaceAtEnd>
-              import
-            </Text>
-            <Text color="orange" spaceAtEnd>
-              {"{"}
-            </Text>
-            <Text color="lightGreen" spaceAtEnd>
-              useDegree
-            </Text>
-            <Text color="orange" spaceAtEnd>
-              {"}"}
-            </Text>
-            <Text color="brown" italic spaceAtEnd>
-              from
-            </Text>
-            <Text color="teal">{'"@ucf/digital-media"'}</Text>
-            <Text color="orange">;</Text>
-          </Line>
-          <Line>
-            <Text color="brown" italic spaceAtEnd>
-              import
-            </Text>
-            <Text color="orange" spaceAtEnd>
-              {"{"}
-            </Text>
-            <Text color="lightGreen" spaceAtEnd>
-              SeniorWebDeveloper
-            </Text>
-            <Text color="orange" spaceAtEnd>
-              {"}"}
-            </Text>
-            <Text color="brown" italic spaceAtEnd>
-              from
-            </Text>
-            <Text color="teal">{'"@curse/engineering"'}</Text>
-            <Text color="orange">;</Text>
-          </Line>
-          <Line>
-            <Text color="brown" italic spaceAtEnd>
-              import
-            </Text>
-            <Text color="orange" spaceAtEnd>
-              {"{"}
-            </Text>
-            <Text color="lightGreen" spaceAtEnd>
-              FrontEndEngineerII
-            </Text>
-            <Text color="orange" spaceAtEnd>
-              {"}"}
-            </Text>
-            <Text color="brown" italic spaceAtEnd>
-              from
-            </Text>
-            <Text color="teal">{'"@amazon/engineering"'}</Text>
-            <Text color="orange">;</Text>
-          </Line>
-          <Line>
-            <Text spaceAtEnd />
-          </Line>
-          <TopOfExport />
-          <Line indent={6}>
-            <Text color="lightGreen">team</Text>
-            <Text color="orange">=</Text>
-            <Text color="teal">{'"Mobile Growth/Engagement"'}</Text>
-          </Line>
-          <Line indent={6}>
-            <Text color="lightGreen">startDate</Text>
-            <Text color="orange">{"={"}</Text>
-            <Text color="yellow" spaceAtEnd>
-              new
-            </Text>
-            <Text color="darkGreen">Date</Text>
-            <Text color="orange">(</Text>
-            <Text color="pink">2020</Text>
-            <Text color="orange" spaceAtEnd>
-              ,
-            </Text>
-            <Text color="pink">1</Text>
-            <Text color="orange">{")}"}</Text>
-          </Line>
-          <Line indent={6}>
-            <Text color="lightGreen">previousWorkExperience</Text>
-            <Text color="orange">{"={["}</Text>
-          </Line>
-          <Line indent={8}>
-            <Text color="orange">{"<"}</Text>
-            <Text color="darkGreen" spaceAtEnd>
-              FrontEndEngineerII
-            </Text>
-          </Line>
-          <Line indent={10}>
-            <Text color="lightGreen">team</Text>
-            <Text color="orange">=</Text>
-            <Text color="teal">{'"Woot! Experience"'}</Text>
-          </Line>
-          <Line indent={10}>
-            <Text color="lightGreen">startDate</Text>
-            <Text color="orange">{"={"}</Text>
-            <Text color="yellow" spaceAtEnd>
-              new
-            </Text>
-            <Text color="darkGreen">Date</Text>
-            <Text color="orange">(</Text>
-            <Text color="pink">2016</Text>
-            <Text color="orange" spaceAtEnd>
-              ,
-            </Text>
-            <Text color="pink">9</Text>
-            <Text color="orange">{")}"}</Text>
-          </Line>
-          <Line indent={8}>
-            <Text color="orange">{"/>,"}</Text>
-          </Line>
-          <Line indent={8}>
-            <Text color="orange">{"<"}</Text>
-            <Text color="darkGreen" spaceAtEnd>
-              SeniorWebDeveloper
-            </Text>
-          </Line>
-          <Line indent={10}>
-            <Text color="lightGreen">team</Text>
-            <Text color="orange">=</Text>
-            <Text color="teal">{'"Product"'}</Text>
-          </Line>
-          <Line indent={10}>
-            <Text color="lightGreen">startDate</Text>
-            <Text color="orange">{"={"}</Text>
-            <Text color="yellow" spaceAtEnd>
-              new
-            </Text>
-            <Text color="darkGreen">Date</Text>
-            <Text color="orange">(</Text>
-            <Text color="pink">2014</Text>
-            <Text color="orange" spaceAtEnd>
-              ,
-            </Text>
-            <Text color="pink">3</Text>
-            <Text color="orange">{")}"}</Text>
-          </Line>
-          <Line indent={8}>
-            <Text color="orange">{"/>,"}</Text>
-          </Line>
-          <Line indent={6}>
-            <Text color="orange">{"]}"}</Text>
-          </Line>
-          <Line indent={6}>
-            <Text color="orange">{"{"}</Text>
-            <Text color="yellow">...</Text>
-            <Text color="orange" spaceAtEnd>
-              {"{"}
-            </Text>
-            <Text color="lightGreen" spaceAtEnd>
-              education
-            </Text>
-            <Text color="orange">{"}}"}</Text>
-          </Line>
-          <Line indent={4}>
-            <Text color="orange">{"/>"}</Text>
-          </Line>
-          <Line indent={2}>
-            <Text color="orange">{");"}</Text>
-          </Line>
-          <Line>
-            <Text color="orange">{"}"}</Text>
-          </Line>
-        </Box>
-        <Line>
-          <Text italic comment style={footer} />
+      <Box>
+        <Line num={1}>
+          <Text color="brown" italic>
+            import
+          </Text>
+          <Text color="orange" preSpace left={6}>
+            {"{"}
+          </Text>
+          <Text color="lightGreen" preSpace left={9}>
+            useDegree
+          </Text>
+          <Text color="orange" preSpace left={19}>
+            {"}"}
+          </Text>
+          <Text color="brown" italic preSpace left={21}>
+            from
+          </Text>
+          <Text color="teal" left={26} preSpace>
+            {'"@ucf/digital-media"'}
+          </Text>
+          <Text color="orange" left={45}>
+            ;
+          </Text>
         </Line>
-        <Line>
-          <Link type="comment" style={footer} href="/" {...{ navigate }}>
-            home
-          </Link>
+        <Line num={2}>
+          <Text color="brown" italic>
+            import
+          </Text>
+          <Text color="orange" preSpace left={7}>
+            {"{"}
+          </Text>
+          <Text color="lightGreen" preSpace left={9}>
+            SeniorWebDeveloper
+          </Text>
+          <Text color="orange" preSpace left={28}>
+            {"}"}
+          </Text>
+          <Text color="brown" italic preSpace left={30}>
+            from
+          </Text>
+          <Text color="teal" left={35} preSpace>
+            {'"@curse/engineering"'}
+          </Text>
+          <Text color="orange" left={55}>
+            ;
+          </Text>
         </Line>
-      </Content>
+        <Line num={3}>
+          <Text color="brown" italic>
+            import
+          </Text>
+          <Text color="orange" preSpace left={7}>
+            {"{"}
+          </Text>
+          <Text color="lightGreen" preSpace left={9}>
+            FrontEndEngineerII
+          </Text>
+          <Text color="orange" preSpace left={28}>
+            {"}"}
+          </Text>
+          <Text color="brown" italic preSpace left={30}>
+            from
+          </Text>
+          <Text color="teal" left={35} preSpace>
+            {'"@amazon/engineering"'}
+          </Text>
+          <Text color="orange" left={56}>
+            ;
+          </Text>
+        </Line>
+        <Line num={4}>
+          <Text preSpace />
+        </Line>
+        <TopOfExport />
+        <Line indent={6} num={14}>
+          <Text color="lightGreen">team</Text>
+          <Text color="orange" left={4}>
+            =
+          </Text>
+          <Text color="teal" left={5}>
+            {'"Mobile Growth/Engagement"'}
+          </Text>
+        </Line>
+        <Line indent={6} num={15}>
+          <Text color="lightGreen">startDate</Text>
+          <Text color="orange" left={9}>
+            {"={"}
+          </Text>
+          <Text color="yellow" left={11}>
+            new
+          </Text>
+          <Text color="darkGreen" left={15} preSpace>
+            Date
+          </Text>
+          <Text color="orange" left={19}>
+            (
+          </Text>
+          <Text color="pink" left={20}>
+            2020
+          </Text>
+          <Text color="orange" left={24}>
+            ,
+          </Text>
+          <Text color="pink" left={26} preSpace>
+            1
+          </Text>
+          <Text color="orange" left={27}>
+            {")}"}
+          </Text>
+        </Line>
+        <Line indent={6} num={16}>
+          <Text color="lightGreen">previousWorkExperience</Text>
+          <Text color="orange" left={22}>
+            {"={["}
+          </Text>
+        </Line>
+        <Line indent={8} num={17}>
+          <Text color="orange">{"<"}</Text>
+          <Text color="darkGreen" left={1}>
+            FrontEndEngineerII
+          </Text>
+        </Line>
+        <Line indent={10} num={18}>
+          <Text color="lightGreen">team</Text>
+          <Text color="orange" left={4}>
+            =
+          </Text>
+          <Text color="teal" left={5}>
+            {'"Woot! Experience"'}
+          </Text>
+        </Line>
+        <Line indent={10} num={19}>
+          <Text color="lightGreen">startDate</Text>
+          <Text color="orange" left={9}>
+            {"={"}
+          </Text>
+          <Text color="yellow" left={11}>
+            new
+          </Text>
+          <Text color="darkGreen" left={15} preSpace>
+            Date
+          </Text>
+          <Text color="orange" left={19}>
+            (
+          </Text>
+          <Text color="pink" left={20}>
+            2016
+          </Text>
+          <Text color="orange" left={24}>
+            ,
+          </Text>
+          <Text color="pink" left={26} preSpace>
+            9
+          </Text>
+          <Text color="orange" left={27}>
+            {")}"}
+          </Text>
+        </Line>
+        <Line indent={8} num={20}>
+          <Text color="orange">{"/>,"}</Text>
+        </Line>
+        <Line indent={8} num={21}>
+          <Text color="orange">{"<"}</Text>
+          <Text color="darkGreen" left={1}>
+            SeniorWebDeveloper
+          </Text>
+        </Line>
+        <Line indent={10} num={22}>
+          <Text color="lightGreen">team</Text>
+          <Text color="orange" left={4}>
+            =
+          </Text>
+          <Text color="teal" left={5}>
+            {'"Product"'}
+          </Text>
+        </Line>
+        <Line indent={10} num={23}>
+          <Text color="lightGreen">startDate</Text>
+          <Text color="orange" left={9}>
+            {"={"}
+          </Text>
+          <Text color="yellow" left={11}>
+            new
+          </Text>
+          <Text color="darkGreen" left={15} preSpace>
+            Date
+          </Text>
+          <Text color="orange" left={19}>
+            (
+          </Text>
+          <Text color="pink" left={20}>
+            2014
+          </Text>
+          <Text color="orange" left={24}>
+            ,
+          </Text>
+          <Text color="pink" left={26} preSpace>
+            3
+          </Text>
+          <Text color="orange" left={27}>
+            {")}"}
+          </Text>
+        </Line>
+        <Line indent={8} num={24}>
+          <Text color="orange">{"/>,"}</Text>
+        </Line>
+        <Line indent={6} num={25}>
+          <Text color="orange">{"]}"}</Text>
+        </Line>
+        <Line indent={6} num={26}>
+          <Text color="orange">{"{"}</Text>
+          <Text color="yellow" left={1}>
+            ...
+          </Text>
+          <Text color="orange" left={4}>
+            {"{"}
+          </Text>
+          <Text color="lightGreen" preSpace left={5}>
+            education
+          </Text>
+          <Text color="orange" left={14} preSpace>
+            {"}}"}
+          </Text>
+        </Line>
+        <Line indent={4} num={27}>
+          <Text color="orange">{"/>"}</Text>
+        </Line>
+        <Line indent={2} num={28}>
+          <Text color="orange">{");"}</Text>
+        </Line>
+        <Line num={29}>
+          <Text color="orange">{"}"}</Text>
+        </Line>
+      </Box>
     )
   );
 }

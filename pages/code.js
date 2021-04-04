@@ -1,11 +1,16 @@
 import React from "react";
 import Page from "../components/Page";
+import Content from "../components/Content";
 import Source from "../components/Source";
+import Footer from "../components/Footer";
 
-export default function Code({ navigation }) {
+export default function Code() {
   return (
     <Page>
-      <Source {...{ navigation }} />
+      <Content scrollView>
+        <Source />
+        <Footer />
+      </Content>
     </Page>
   );
 }

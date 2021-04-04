@@ -6,7 +6,7 @@ import Content from "../Content";
 import Line from "../Line";
 import Link from "../Link";
 
-export default function Gateway({ navigation: { navigate } }) {
+export default function Gateway() {
   const { heading } = styles();
 
   return (
@@ -16,7 +16,7 @@ export default function Gateway({ navigation: { navigate } }) {
           {"<"}
         </Text>
         <View>
-          <Link style={heading} href="/code" {...{ navigate }}>
+          <Link style={heading} href="/code">
             ASGB
           </Link>
         </View>
@@ -28,11 +28,7 @@ export default function Gateway({ navigation: { navigate } }) {
         <Text italic comment style={heading} />
       </Line>
       <Line>
-        <Link
-          type="comment"
-          style={heading}
-          href="https://raw.githubusercontent.com/opeologist/opeologist.github.io/mainline/Aaron-Giordano-Barry-Resume.pdf"
-        >
+        <Link type="comment" style={heading} href="/resume">
           resume
         </Link>
       </Line>
@@ -40,12 +36,7 @@ export default function Gateway({ navigation: { navigate } }) {
         <Text italic comment style={heading} />
       </Line>
       <Line>
-        <Link
-          type="comment"
-          style={heading}
-          href="mailto:email@asgb.me"
-          {...{ navigate }}
-        >
+        <Link type="comment" style={heading} href="mailto:email@asgb.me">
           email
         </Link>
       </Line>
@@ -57,7 +48,6 @@ export default function Gateway({ navigation: { navigate } }) {
           type="comment"
           style={heading}
           href="https://www.linkedin.com/in/asgb"
-          {...{ navigate }}
         >
           linkedin
         </Link>
@@ -70,7 +60,6 @@ export default function Gateway({ navigation: { navigate } }) {
           type="comment"
           style={heading}
           href="https://github.com/opeologist/opeologist.github.io"
-          {...{ navigate }}
         >
           source
         </Link>
