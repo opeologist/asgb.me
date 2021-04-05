@@ -1,8 +1,8 @@
 import { createContext } from "react";
 
-export const ARContext = createContext({ ready: false });
+export const ARContext = createContext({ ready: null });
 export const NavigationContext = createContext(null);
-export const CharAtContext = createContext({
-  charAt: null,
-  setCharAt: () => {},
+export const TextContext = createContext({
+  firstTextWidth: null,
+  setFirstTextWidth: null,
 });

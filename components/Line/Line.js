@@ -1,4 +1,4 @@
-import React, { cloneElement, useContext, useState } from "react";
+import React, { cloneElement, useContext, useState, useEffect } from "react";
 import { View } from "react-native";
 import { ViroFlexView } from "@viro-community/react-viro";
 import styles from "./styles";
@@ -13,39 +13,49 @@ export default function Line({
   ...rest
 }) {
   const [currentLineIndex, setCurrentLineIndex] = useState(0);
-  const [currentCharAt, setCurrentCharAt] = useState(0);
+  const [currentX, setCurrentX] = useState(0);
+  const [lineEnd, setLineEnd] = useState(false);
+  const [opacity, setOpacity] = useState(0);
   const { ready } = useContext(ARContext);
+  const renderChildren = () => {
+    const clonedChildren = [];
+
+    React.Children.map(children, (child, i) => {
+      if (React.isValidElement(child)) {
+        clonedChildren.push(
+          cloneElement(child, {
+            currentX,
+            setCurrentX,
+            key: i,
+            i,
+            currentLineIndex,
+            setCurrentLineIndex,
+            totalChildren: children.length,
+            lineEnd,
+            setLineEnd,
+          })
+        );
+      }
+
+      return child;
+    });
+
+    return clonedChildren;
+  };
+
+  useEffect(() => {
+    if (lineEnd) {
+      setOpacity(1);
+    }
+  }, [lineEnd]);
 
   const { line } = styles();
 
   if (ready) {
-    const renderChildren = () => {
-      const clonedChildren = [];
-
-      React.Children.map(children, (child, i) => {
-        if (React.isValidElement(child)) {
-          clonedChildren.push(
-            cloneElement(child, {
-              currentCharAt,
-              key: i,
-              setCurrentCharAt,
-              i,
-              currentLineIndex,
-              setCurrentLineIndex,
-            })
-          );
-        }
-
-        return child;
-      });
-
-      return clonedChildren;
-    };
-
     return (
       <ViroFlexView
-        position={[0.5 + indent * 0.08, 2.6 - num * 0.2, 0]}
-        {...{ style }}
+        position={[indent * 0.11, 2.6 - num * 0.2, 0]}
+        {...{ style, opacity }}
         {...rest}
       >
         {renderChildren()}

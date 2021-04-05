@@ -13,12 +13,11 @@ export default function Box({ style, ...rest }) {
   if (ready) {
     return (
       <ViroFlexView
-        position={[0, 0, -0.1]}
+        position={[0, -10, -5]}
         rotation={[0, 0, 0]}
-        scale={[0.035, 0.035, 0.035]}
         transformBehaviors={["billboardX"]}
         width={6.8}
-        height={7.2}
+        height={6.25}
         {...{ backgroundColor, style }}
         {...rest}
       />

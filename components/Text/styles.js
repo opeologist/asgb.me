@@ -2,6 +2,9 @@ import { StyleSheet } from "react-native";
 
 export default function textStyles() {
   return StyleSheet.create({
+    ar: {
+      fontFamily: "Menlo",
+    },
     base: {
       fontFamily: "DankMono-Regular",
     },
@@ -37,6 +40,9 @@ export default function textStyles() {
     },
     yellow: {
       color: "#ffff4d",
+    },
+    transparent: {
+      color: "transparent",
     },
   });
 }

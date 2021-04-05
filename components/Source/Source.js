@@ -15,235 +15,191 @@ export default function Source() {
     hasMounted && (
       <Box>
         <Line num={1}>
+          <Text color="transparent">.</Text>
           <Text color="brown" italic>
             import
           </Text>
-          <Text color="orange" preSpace left={6}>
+          <Text color="orange" preSpace>
             {"{"}
           </Text>
-          <Text color="lightGreen" preSpace left={9}>
+          <Text color="lightGreen" preSpace>
             useDegree
           </Text>
-          <Text color="orange" preSpace left={19}>
+          <Text color="orange" preSpace>
             {"}"}
           </Text>
-          <Text color="brown" italic preSpace left={21}>
+          <Text color="brown" italic preSpace>
             from
           </Text>
           <Text color="teal" left={26} preSpace>
             {'"@ucf/digital-media"'}
           </Text>
-          <Text color="orange" left={45}>
-            ;
-          </Text>
+          <Text color="orange">;</Text>
         </Line>
         <Line num={2}>
+          <Text color="transparent">.</Text>
           <Text color="brown" italic>
             import
           </Text>
-          <Text color="orange" preSpace left={7}>
+          <Text color="orange" preSpace>
             {"{"}
           </Text>
-          <Text color="lightGreen" preSpace left={9}>
+          <Text color="lightGreen" preSpace>
             SeniorWebDeveloper
           </Text>
-          <Text color="orange" preSpace left={28}>
+          <Text color="orange" preSpace>
             {"}"}
           </Text>
-          <Text color="brown" italic preSpace left={30}>
+          <Text color="brown" italic preSpace>
             from
           </Text>
-          <Text color="teal" left={35} preSpace>
+          <Text color="teal" preSpace>
             {'"@curse/engineering"'}
           </Text>
-          <Text color="orange" left={55}>
-            ;
-          </Text>
+          <Text color="orange">;</Text>
         </Line>
         <Line num={3}>
+          <Text color="transparent">.</Text>
           <Text color="brown" italic>
             import
           </Text>
-          <Text color="orange" preSpace left={7}>
+          <Text color="orange" preSpace>
             {"{"}
           </Text>
-          <Text color="lightGreen" preSpace left={9}>
+          <Text color="lightGreen" preSpace>
             FrontEndEngineerII
           </Text>
-          <Text color="orange" preSpace left={28}>
+          <Text color="orange" preSpace>
             {"}"}
           </Text>
-          <Text color="brown" italic preSpace left={30}>
+          <Text color="brown" italic preSpace>
             from
           </Text>
-          <Text color="teal" left={35} preSpace>
+          <Text color="teal" preSpace>
             {'"@amazon/engineering"'}
           </Text>
-          <Text color="orange" left={56}>
-            ;
-          </Text>
+          <Text color="orange">;</Text>
         </Line>
         <Line num={4}>
+          <Text color="transparent">.</Text>
           <Text preSpace />
         </Line>
         <TopOfExport />
         <Line indent={6} num={14}>
+          <Text color="transparent">.</Text>
           <Text color="lightGreen">team</Text>
-          <Text color="orange" left={4}>
-            =
-          </Text>
-          <Text color="teal" left={5}>
-            {'"Mobile Growth/Engagement"'}
-          </Text>
+          <Text color="orange">=</Text>
+          <Text color="teal">{'"Mobile Growth/Engagement"'}</Text>
         </Line>
         <Line indent={6} num={15}>
+          <Text color="transparent">.</Text>
           <Text color="lightGreen">startDate</Text>
-          <Text color="orange" left={9}>
-            {"={"}
-          </Text>
-          <Text color="yellow" left={11}>
-            new
-          </Text>
-          <Text color="darkGreen" left={15} preSpace>
+          <Text color="orange">{"={"}</Text>
+          <Text color="yellow">new</Text>
+          <Text color="darkGreen" preSpace>
             Date
           </Text>
-          <Text color="orange" left={19}>
-            (
-          </Text>
-          <Text color="pink" left={20}>
-            2020
-          </Text>
-          <Text color="orange" left={24}>
-            ,
-          </Text>
-          <Text color="pink" left={26} preSpace>
+          <Text color="orange">(</Text>
+          <Text color="pink">2020</Text>
+          <Text color="orange">,</Text>
+          <Text color="pink" preSpace>
             1
           </Text>
-          <Text color="orange" left={27}>
-            {")}"}
-          </Text>
+          <Text color="orange">{")}"}</Text>
         </Line>
         <Line indent={6} num={16}>
+          <Text color="transparent">.</Text>
           <Text color="lightGreen">previousWorkExperience</Text>
-          <Text color="orange" left={22}>
-            {"={["}
-          </Text>
+          <Text color="orange">{"={["}</Text>
         </Line>
         <Line indent={8} num={17}>
+          <Text color="transparent">.</Text>
           <Text color="orange">{"<"}</Text>
-          <Text color="darkGreen" left={1}>
-            FrontEndEngineerII
-          </Text>
+          <Text color="darkGreen">FrontEndEngineerII</Text>
         </Line>
         <Line indent={10} num={18}>
+          <Text color="transparent">.</Text>
           <Text color="lightGreen">team</Text>
-          <Text color="orange" left={4}>
-            =
-          </Text>
-          <Text color="teal" left={5}>
-            {'"Woot! Experience"'}
-          </Text>
+          <Text color="orange">=</Text>
+          <Text color="teal">{'"Woot! Experience"'}</Text>
         </Line>
         <Line indent={10} num={19}>
+          <Text color="transparent">.</Text>
           <Text color="lightGreen">startDate</Text>
-          <Text color="orange" left={9}>
-            {"={"}
-          </Text>
-          <Text color="yellow" left={11}>
-            new
-          </Text>
-          <Text color="darkGreen" left={15} preSpace>
+          <Text color="orange">{"={"}</Text>
+          <Text color="yellow">new</Text>
+          <Text color="darkGreen" preSpace>
             Date
           </Text>
-          <Text color="orange" left={19}>
-            (
-          </Text>
-          <Text color="pink" left={20}>
-            2016
-          </Text>
-          <Text color="orange" left={24}>
-            ,
-          </Text>
-          <Text color="pink" left={26} preSpace>
+          <Text color="orange">(</Text>
+          <Text color="pink">2016</Text>
+          <Text color="orange">,</Text>
+          <Text color="pink" preSpace>
             9
           </Text>
-          <Text color="orange" left={27}>
-            {")}"}
-          </Text>
+          <Text color="orange">{")}"}</Text>
         </Line>
         <Line indent={8} num={20}>
+          <Text color="transparent">.</Text>
           <Text color="orange">{"/>,"}</Text>
         </Line>
         <Line indent={8} num={21}>
+          <Text color="transparent">.</Text>
           <Text color="orange">{"<"}</Text>
-          <Text color="darkGreen" left={1}>
-            SeniorWebDeveloper
-          </Text>
+          <Text color="darkGreen">SeniorWebDeveloper</Text>
         </Line>
         <Line indent={10} num={22}>
+          <Text color="transparent">.</Text>
           <Text color="lightGreen">team</Text>
-          <Text color="orange" left={4}>
-            =
-          </Text>
-          <Text color="teal" left={5}>
-            {'"Product"'}
-          </Text>
+          <Text color="orange">=</Text>
+          <Text color="teal">{'"Product"'}</Text>
         </Line>
         <Line indent={10} num={23}>
+          <Text color="transparent">.</Text>
           <Text color="lightGreen">startDate</Text>
-          <Text color="orange" left={9}>
-            {"={"}
-          </Text>
-          <Text color="yellow" left={11}>
-            new
-          </Text>
-          <Text color="darkGreen" left={15} preSpace>
+          <Text color="orange">{"={"}</Text>
+          <Text color="yellow">new</Text>
+          <Text color="darkGreen" preSpace>
             Date
           </Text>
-          <Text color="orange" left={19}>
-            (
-          </Text>
-          <Text color="pink" left={20}>
-            2014
-          </Text>
-          <Text color="orange" left={24}>
-            ,
-          </Text>
-          <Text color="pink" left={26} preSpace>
+          <Text color="orange">(</Text>
+          <Text color="pink">2014</Text>
+          <Text color="orange">,</Text>
+          <Text color="pink" preSpace>
             3
           </Text>
-          <Text color="orange" left={27}>
-            {")}"}
-          </Text>
+          <Text color="orange">{")}"}</Text>
         </Line>
         <Line indent={8} num={24}>
+          <Text color="transparent">.</Text>
           <Text color="orange">{"/>,"}</Text>
         </Line>
         <Line indent={6} num={25}>
+          <Text color="transparent">.</Text>
           <Text color="orange">{"]}"}</Text>
         </Line>
         <Line indent={6} num={26}>
+          <Text color="transparent">.</Text>
           <Text color="orange">{"{"}</Text>
-          <Text color="yellow" left={1}>
-            ...
-          </Text>
-          <Text color="orange" left={4}>
-            {"{"}
-          </Text>
-          <Text color="lightGreen" preSpace left={5}>
+          <Text color="yellow">...</Text>
+          <Text color="orange">{"{"}</Text>
+          <Text color="lightGreen" preSpace>
             education
           </Text>
-          <Text color="orange" left={14} preSpace>
+          <Text color="orange" preSpace>
             {"}}"}
           </Text>
         </Line>
         <Line indent={4} num={27}>
+          <Text color="transparent">.</Text>
           <Text color="orange">{"/>"}</Text>
         </Line>
         <Line indent={2} num={28}>
+          <Text color="transparent">.</Text>
           <Text color="orange">{");"}</Text>
         </Line>
         <Line num={29}>
+          <Text color="transparent">.</Text>
           <Text color="orange">{"}"}</Text>
         </Line>
       </Box>
