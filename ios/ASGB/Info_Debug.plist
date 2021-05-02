@@ -35,10 +35,14 @@
 			</dict>
 		</dict>
 	</dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
 	<key>NSCameraUsageDescription</key>
 	<string>The camera is needed for AR functionality</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string></string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>The microphone is not used for this app, but the parent SDK requires it</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Photo Library is not used for this app, but the parent SDK requires it</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>DankMono-Italic.otf</string>
