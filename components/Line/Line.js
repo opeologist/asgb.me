@@ -1,9 +1,14 @@
 import React, { cloneElement, useContext, useState, useEffect } from "react";
-import { View } from "react-native";
-import { ViroFlexView } from "@viro-community/react-viro";
+import { Platform, View } from "react-native";
 import styles from "./styles";
 import Text from "../Text";
 import { ARContext } from "../../contexts";
+
+let ViroFlexView;
+
+if (Platform.OS !== "web") {
+  ViroFlexView = require("@viro-community/react-viro").ViroFlexView;
+}
 
 export default function Line({
   style,

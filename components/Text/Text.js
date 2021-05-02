@@ -1,8 +1,15 @@
 import React, { useContext, useEffect, useState, useRef } from "react";
-import { Text as RealText } from "react-native";
-import { ViroFlexView, ViroText } from "@viro-community/react-viro";
+import { Text as RealText, Platform } from "react-native";
 import styles from "./styles";
 import { ARContext } from "../../contexts";
+
+let ViroFlexView;
+let ViroText;
+
+if (Platform.OS !== "web") {
+  ViroFlexView = require("@viro-community/react-viro").ViroFlexView;
+  ViroText = require("@viro-community/react-viro").ViroText;
+}
 
 export default function Text({
   children = "",
@@ -28,6 +35,13 @@ export default function Text({
   const { ready } = useContext(ARContext);
   const ref = useRef(null);
   const text = `${comment ? "//" : ""}${preSpace ? "\u00A0" : ""}${children}`;
+  const getBoundingBox = async () => {
+    const {
+      boundingBox: { minX, maxX },
+    } = await ref.current.getBoundingBoxAsync();
+
+    setWidth(maxX - minX);
+  };
 
   useEffect(() => {
     setHasMounted(true);
@@ -40,14 +54,6 @@ export default function Text({
       !hasSetCurrentX &&
       !hasSetX
     ) {
-      const getBoundingBox = async () => {
-        const {
-          boundingBox: { minX, maxX },
-        } = await ref.current.getBoundingBoxAsync();
-
-        setWidth(maxX - minX);
-      };
-
       getBoundingBox();
     }
   }, [hasMounted, i, ready, currentLineIndex, hasSetCurrentX, hasSetX, width]);
@@ -140,7 +146,6 @@ export default function Text({
           maxLines={1}
           width={6.4}
           {...{ text }}
-          {...rest}
         />
       </ViroFlexView>
     );

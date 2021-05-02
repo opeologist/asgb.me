@@ -1,5 +1,5 @@
 module.exports = {
-  webpack: (config) => {
+  webpack: (config, { webpack }) => {
     config.resolve.alias = {
       ...(config.resolve.alias || {}),
       // Transform all direct `react-native` imports to `react-native-web`
@@ -11,6 +11,9 @@ module.exports = {
       ".web.tsx",
       ...config.resolve.extensions,
     ];
+    config.plugins.push(
+      new webpack.IgnorePlugin(/@viro-community\/react-viro/)
+    );
 
     return config;
   },

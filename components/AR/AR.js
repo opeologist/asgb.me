@@ -5,9 +5,11 @@ import {
   ViroARPlaneSelector,
   ViroConstants,
 } from "@viro-community/react-viro";
+import { View } from "react-native";
 import { ARContext } from "../../contexts";
 import styles from "./styles";
 import Source from "../Source";
+import Footer from "../Footer";
 
 const Scene = () => {
   const [ready, setReady] = useState(false);
@@ -30,21 +32,26 @@ const Scene = () => {
           minWidth={0.1}
           minHeight={0}
         >
-          <Source />
+          <Source ar />
         </ViroARPlaneSelector>
       </ViroARScene>
     </ARContext.Provider>
   );
 };
 
-const { resume } = styles();
+const { ar, arContainer, arWrapper } = styles();
 
-export default function Resume() {
+export default function AR() {
   return (
-    <ViroARSceneNavigator
-      autofocus
-      initialScene={{ scene: Scene }}
-      style={resume}
-    />
+    <View style={arWrapper}>
+      <View style={arContainer}>
+        <ViroARSceneNavigator
+          autofocus
+          initialScene={{ scene: Scene }}
+          style={ar}
+        />
+      </View>
+      <Footer reverse />
+    </View>
   );
 }

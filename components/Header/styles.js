@@ -1,9 +1,9 @@
 import { StyleSheet } from "react-native";
 import { large } from "../../constants";
 
-export default function footerStyles() {
+export default function headerStyles() {
   return StyleSheet.create({
-    footer: {
+    header: {
       fontSize: large,
     },
   });

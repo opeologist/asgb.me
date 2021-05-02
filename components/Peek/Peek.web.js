@@ -11,7 +11,7 @@ const Skeleton = () => {
   for (let i = 0; i < 9; i++) {
     lines.push(
       <Line key={i}>
-        <Text spaceAtEnd />
+        <Text preSpace />
       </Line>
     );
   }
@@ -42,23 +42,25 @@ export default function Peek() {
           <Line>
             <Text color="orange">(</Text>
             <Text color="lightGreen">alias</Text>
-            <Text color="orange" spaceAtEnd>
-              )
-            </Text>
-            <Text color="brown" spaceAtEnd>
+            <Text color="orange">)</Text>
+            <Text color="brown" preSpace>
               function
             </Text>
-            <Text color="green">Aaron</Text>
-            <Text color="orange" spaceAtEnd>
-              ():
+            <Text color="green" preSpace>
+              Aaron
             </Text>
-            <Text color="green">Human.Being</Text>
+            <Text color="orange">():</Text>
+            <Text color="green" preSpace>
+              Human.Being
+            </Text>
           </Line>
           <Line>
-            <Text color="brown" italic spaceAtEnd>
+            <Text color="brown" italic>
               import
             </Text>
-            <Text color="lightGreen">ASGB</Text>
+            <Text color="lightGreen" preSpace>
+              ASGB
+            </Text>
           </Line>
         </Box>
       </View>

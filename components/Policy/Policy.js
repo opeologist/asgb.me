@@ -1,7 +1,6 @@
 import React from "react";
 import Text from "../Text";
 import Content from "../Content";
-import Box from "../Box";
 import Line from "../Line";
 import styles from "./styles";
 

@@ -1,9 +1,14 @@
 import React, { useContext } from "react";
-import { View } from "react-native";
-import { ViroFlexView } from "@viro-community/react-viro";
+import { Platform, View } from "react-native";
 import styles from "./styles";
 import { ARContext } from "../../contexts";
 import { backgroundColor } from "../../constants";
+
+let ViroFlexView;
+
+if (Platform.OS !== "web") {
+  ViroFlexView = require("@viro-community/react-viro").ViroFlexView;
+}
 
 export default function Box({ style, ...rest }) {
   const { ready } = useContext(ARContext);

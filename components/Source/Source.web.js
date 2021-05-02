@@ -16,64 +16,70 @@ export default function Source() {
     hasMounted && (
       <Box>
         <Line>
-          <Text color="brown" italic spaceAtEnd>
+          <Text color="brown" italic>
             import
           </Text>
-          <Text color="orange" spaceAtEnd>
+          <Text color="orange" preSpace>
             {"{"}
           </Text>
-          <Text color="lightGreen" spaceAtEnd>
+          <Text color="lightGreen" preSpace>
             useDegree
           </Text>
-          <Text color="orange" spaceAtEnd>
+          <Text color="orange" preSpace>
             {"}"}
           </Text>
-          <Text color="brown" italic spaceAtEnd>
+          <Text color="brown" italic preSpace>
             from
           </Text>
-          <Text color="teal">{'"@ucf/digital-media"'}</Text>
+          <Text color="teal" preSpace>
+            {'"@ucf/digital-media"'}
+          </Text>
           <Text color="orange">;</Text>
         </Line>
         <Line>
-          <Text color="brown" italic spaceAtEnd>
+          <Text color="brown" italic>
             import
           </Text>
-          <Text color="orange" spaceAtEnd>
+          <Text color="orange" preSpace>
             {"{"}
           </Text>
-          <Text color="lightGreen" spaceAtEnd>
+          <Text color="lightGreen" preSpace>
             SeniorWebDeveloper
           </Text>
-          <Text color="orange" spaceAtEnd>
+          <Text color="orange" preSpace>
             {"}"}
           </Text>
-          <Text color="brown" italic spaceAtEnd>
+          <Text color="brown" italic preSpace>
             from
           </Text>
-          <Text color="teal">{'"@curse/engineering"'}</Text>
+          <Text color="teal" preSpace>
+            {'"@curse/engineering"'}
+          </Text>
           <Text color="orange">;</Text>
         </Line>
         <Line>
-          <Text color="brown" italic spaceAtEnd>
+          <Text color="brown" italic>
             import
           </Text>
-          <Text color="orange" spaceAtEnd>
+          <Text color="orange" preSpace>
             {"{"}
           </Text>
-          <Text color="lightGreen" spaceAtEnd>
+          <Text color="lightGreen" preSpace>
             FrontEndEngineerII
           </Text>
-          <Text color="orange" spaceAtEnd>
+          <Text color="orange" preSpace>
             {"}"}
           </Text>
-          <Text color="brown" italic spaceAtEnd>
+          <Text color="brown" italic preSpace>
             from
           </Text>
-          <Text color="teal">{'"@amazon/engineering"'}</Text>
+          <Text color="teal" preSpace>
+            {'"@amazon/engineering"'}
+          </Text>
           <Text color="orange">;</Text>
         </Line>
         <Line>
-          <Text spaceAtEnd />
+          <Text preSpace />
         </Line>
         <Suspense fallback={null}>
           <TopOfExport />
@@ -86,16 +92,16 @@ export default function Source() {
         <Line indent={6}>
           <Text color="lightGreen">startDate</Text>
           <Text color="orange">{"={"}</Text>
-          <Text color="yellow" spaceAtEnd>
-            new
+          <Text color="yellow">new</Text>
+          <Text color="darkGreen" preSpace>
+            Date
           </Text>
-          <Text color="darkGreen">Date</Text>
           <Text color="orange">(</Text>
           <Text color="pink">2020</Text>
-          <Text color="orange" spaceAtEnd>
-            ,
+          <Text color="orange">,</Text>
+          <Text color="pink" preSpace>
+            1
           </Text>
-          <Text color="pink">1</Text>
           <Text color="orange">{")}"}</Text>
         </Line>
         <Line indent={6}>
@@ -104,9 +110,7 @@ export default function Source() {
         </Line>
         <Line indent={8}>
           <Text color="orange">{"<"}</Text>
-          <Text color="darkGreen" spaceAtEnd>
-            FrontEndEngineerII
-          </Text>
+          <Text color="darkGreen">FrontEndEngineerII</Text>
         </Line>
         <Line indent={10}>
           <Text color="lightGreen">team</Text>
@@ -116,16 +120,16 @@ export default function Source() {
         <Line indent={10}>
           <Text color="lightGreen">startDate</Text>
           <Text color="orange">{"={"}</Text>
-          <Text color="yellow" spaceAtEnd>
-            new
+          <Text color="yellow">new</Text>
+          <Text color="darkGreen" preSpace>
+            Date
           </Text>
-          <Text color="darkGreen">Date</Text>
           <Text color="orange">(</Text>
           <Text color="pink">2016</Text>
-          <Text color="orange" spaceAtEnd>
-            ,
+          <Text color="orange">,</Text>
+          <Text color="pink" preSpace>
+            9
           </Text>
-          <Text color="pink">9</Text>
           <Text color="orange">{")}"}</Text>
         </Line>
         <Line indent={8}>
@@ -133,9 +137,7 @@ export default function Source() {
         </Line>
         <Line indent={8}>
           <Text color="orange">{"<"}</Text>
-          <Text color="darkGreen" spaceAtEnd>
-            SeniorWebDeveloper
-          </Text>
+          <Text color="darkGreen">SeniorWebDeveloper</Text>
         </Line>
         <Line indent={10}>
           <Text color="lightGreen">team</Text>
@@ -145,16 +147,16 @@ export default function Source() {
         <Line indent={10}>
           <Text color="lightGreen">startDate</Text>
           <Text color="orange">{"={"}</Text>
-          <Text color="yellow" spaceAtEnd>
-            new
+          <Text color="yellow">new</Text>
+          <Text color="darkGreen" preSpace>
+            Date
           </Text>
-          <Text color="darkGreen">Date</Text>
           <Text color="orange">(</Text>
           <Text color="pink">2014</Text>
-          <Text color="orange" spaceAtEnd>
-            ,
+          <Text color="orange">,</Text>
+          <Text color="pink" preSpace>
+            3
           </Text>
-          <Text color="pink">3</Text>
           <Text color="orange">{")}"}</Text>
         </Line>
         <Line indent={8}>
@@ -166,13 +168,13 @@ export default function Source() {
         <Line indent={6}>
           <Text color="orange">{"{"}</Text>
           <Text color="yellow">...</Text>
-          <Text color="orange" spaceAtEnd>
-            {"{"}
-          </Text>
-          <Text color="lightGreen" spaceAtEnd>
+          <Text color="orange">{"{"}</Text>
+          <Text color="lightGreen" preSpace>
             education
           </Text>
-          <Text color="orange">{"}}"}</Text>
+          <Text color="orange" preSpace>
+            {"}}"}
+          </Text>
         </Line>
         <Line indent={4}>
           <Text color="orange">{"/>"}</Text>

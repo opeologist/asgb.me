@@ -4,7 +4,7 @@ import Line from "../Line";
 import Box from "../Box";
 import TopOfExport from "./TopOfExport";
 
-export default function Source() {
+export default function Source({ ar = false }) {
   const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
@@ -15,7 +15,8 @@ export default function Source() {
     hasMounted && (
       <Box>
         <Line num={1}>
-          <Text color="transparent">.</Text>
+          {ar && <Text color="transparent">.</Text>}
+          {ar && <Text color="transparent">.</Text>}
           <Text color="brown" italic>
             import
           </Text>
@@ -31,13 +32,14 @@ export default function Source() {
           <Text color="brown" italic preSpace>
             from
           </Text>
-          <Text color="teal" left={26} preSpace>
+          <Text color="teal" preSpace>
             {'"@ucf/digital-media"'}
           </Text>
           <Text color="orange">;</Text>
         </Line>
         <Line num={2}>
-          <Text color="transparent">.</Text>
+          {ar && <Text color="transparent">.</Text>}
+          {ar && <Text color="transparent">.</Text>}
           <Text color="brown" italic>
             import
           </Text>
@@ -59,7 +61,8 @@ export default function Source() {
           <Text color="orange">;</Text>
         </Line>
         <Line num={3}>
-          <Text color="transparent">.</Text>
+          {ar && <Text color="transparent">.</Text>}
+          {ar && <Text color="transparent">.</Text>}
           <Text color="brown" italic>
             import
           </Text>
@@ -81,18 +84,17 @@ export default function Source() {
           <Text color="orange">;</Text>
         </Line>
         <Line num={4}>
-          <Text color="transparent">.</Text>
           <Text preSpace />
         </Line>
-        <TopOfExport />
+        <TopOfExport {...{ ar }} />
         <Line indent={6} num={14}>
-          <Text color="transparent">.</Text>
+          {ar && <Text color="transparent">.</Text>}
           <Text color="lightGreen">team</Text>
           <Text color="orange">=</Text>
           <Text color="teal">{'"Mobile Growth/Engagement"'}</Text>
         </Line>
         <Line indent={6} num={15}>
-          <Text color="transparent">.</Text>
+          {ar && <Text color="transparent">.</Text>}
           <Text color="lightGreen">startDate</Text>
           <Text color="orange">{"={"}</Text>
           <Text color="yellow">new</Text>
@@ -108,23 +110,23 @@ export default function Source() {
           <Text color="orange">{")}"}</Text>
         </Line>
         <Line indent={6} num={16}>
-          <Text color="transparent">.</Text>
+          {ar && <Text color="transparent">.</Text>}
           <Text color="lightGreen">previousWorkExperience</Text>
           <Text color="orange">{"={["}</Text>
         </Line>
         <Line indent={8} num={17}>
-          <Text color="transparent">.</Text>
+          {ar && <Text color="transparent">.</Text>}
           <Text color="orange">{"<"}</Text>
           <Text color="darkGreen">FrontEndEngineerII</Text>
         </Line>
         <Line indent={10} num={18}>
-          <Text color="transparent">.</Text>
+          {ar && <Text color="transparent">.</Text>}
           <Text color="lightGreen">team</Text>
           <Text color="orange">=</Text>
           <Text color="teal">{'"Woot! Experience"'}</Text>
         </Line>
         <Line indent={10} num={19}>
-          <Text color="transparent">.</Text>
+          {ar && <Text color="transparent">.</Text>}
           <Text color="lightGreen">startDate</Text>
           <Text color="orange">{"={"}</Text>
           <Text color="yellow">new</Text>
@@ -140,22 +142,22 @@ export default function Source() {
           <Text color="orange">{")}"}</Text>
         </Line>
         <Line indent={8} num={20}>
-          <Text color="transparent">.</Text>
+          {ar && <Text color="transparent">.</Text>}
           <Text color="orange">{"/>,"}</Text>
         </Line>
         <Line indent={8} num={21}>
-          <Text color="transparent">.</Text>
+          {ar && <Text color="transparent">.</Text>}
           <Text color="orange">{"<"}</Text>
           <Text color="darkGreen">SeniorWebDeveloper</Text>
         </Line>
         <Line indent={10} num={22}>
-          <Text color="transparent">.</Text>
+          {ar && <Text color="transparent">.</Text>}
           <Text color="lightGreen">team</Text>
           <Text color="orange">=</Text>
           <Text color="teal">{'"Product"'}</Text>
         </Line>
         <Line indent={10} num={23}>
-          <Text color="transparent">.</Text>
+          {ar && <Text color="transparent">.</Text>}
           <Text color="lightGreen">startDate</Text>
           <Text color="orange">{"={"}</Text>
           <Text color="yellow">new</Text>
@@ -171,15 +173,15 @@ export default function Source() {
           <Text color="orange">{")}"}</Text>
         </Line>
         <Line indent={8} num={24}>
-          <Text color="transparent">.</Text>
+          {ar && <Text color="transparent">.</Text>}
           <Text color="orange">{"/>,"}</Text>
         </Line>
         <Line indent={6} num={25}>
-          <Text color="transparent">.</Text>
+          {ar && <Text color="transparent">.</Text>}
           <Text color="orange">{"]}"}</Text>
         </Line>
         <Line indent={6} num={26}>
-          <Text color="transparent">.</Text>
+          {ar && <Text color="transparent">.</Text>}
           <Text color="orange">{"{"}</Text>
           <Text color="yellow">...</Text>
           <Text color="orange">{"{"}</Text>
@@ -191,15 +193,15 @@ export default function Source() {
           </Text>
         </Line>
         <Line indent={4} num={27}>
-          <Text color="transparent">.</Text>
+          {ar && <Text color="transparent">.</Text>}
           <Text color="orange">{"/>"}</Text>
         </Line>
         <Line indent={2} num={28}>
-          <Text color="transparent">.</Text>
+          {ar && <Text color="transparent">.</Text>}
           <Text color="orange">{");"}</Text>
         </Line>
         <Line num={29}>
-          <Text color="transparent">.</Text>
+          {ar && <Text color="transparent">.</Text>}
           <Text color="orange">{"}"}</Text>
         </Line>
       </Box>

@@ -28,7 +28,11 @@ export default function Gateway() {
         <Text italic comment style={heading} />
       </Line>
       <Line>
-        <Link type="comment" style={heading} href="/resume">
+        <Link
+          type="comment"
+          style={heading}
+          href="https://raw.githubusercontent.com/opeologist/opeologist.github.io/mainline/Aaron-Giordano-Barry-Resume.pdf"
+        >
           resume
         </Link>
       </Line>
