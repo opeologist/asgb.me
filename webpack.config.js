@@ -47,7 +47,9 @@ export default ({ isDev }) => ({
     ],
   },
   output: {
+    chunkFilename: "[name].[contenthash].js",
     clean: true,
+    filename: "[name].[contenthash].js",
   },
   plugins: [new HtmlWebpackPlugin(), isDev && new ReactRefreshPlugin()].filter(
     Boolean
