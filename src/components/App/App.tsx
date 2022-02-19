@@ -21,7 +21,7 @@ const { CubicEase, EasingFunction } = await import(
   "@babylonjs/core/Animations/easing"
 );
 const { ArcRotateCamera, HemisphericLight } = await import("@babylonjs/core");
-const { SceneComponent } = await import("./SceneComponent");
+const { SceneComponent } = await import("../SceneComponent");
 const { getQueryParameter } = await import("../../helpers/getQueryParameter");
 
 const methods = {
