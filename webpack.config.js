@@ -50,9 +50,14 @@ export default ({ isDev }) => ({
     clean: true,
     filename: "[name].[contenthash].js",
   },
-  plugins: [new HtmlWebpackPlugin(), isDev && new ReactRefreshPlugin()].filter(
-    Boolean
-  ),
+  plugins: [
+    new HtmlWebpackPlugin({
+      templateParameters: {
+        isDev,
+      },
+    }),
+    isDev && new ReactRefreshPlugin(),
+  ].filter(Boolean),
   resolve: {
     extensions: [".js", ".jsx", ".ts", ".tsx", ".json", ".css", ".module.css"],
   },
