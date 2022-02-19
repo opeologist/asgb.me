@@ -22,24 +22,23 @@ export default ({ isDev }) => ({
         exclude: /node_modules/,
         use: [
           {
-            loader: "babel-loader",
+            loader: "swc-loader",
             options: {
-              presets: [
-                "@babel/typescript",
-                [
-                  "@babel/env",
-                  {
-                    modules: false,
-                  },
-                ],
-                [
-                  "@babel/react",
-                  {
+              jsc: {
+                transform: {
+                  react: {
                     runtime: "automatic",
+                    development: isDev,
+                    refresh: isDev,
                   },
-                ],
-              ],
-              plugins: [isDev && "react-refresh/babel"].filter(Boolean),
+                },
+                parser: {
+                  syntax: "typescript",
+                  topLevelAwait: true,
+                  jsx: true,
+                },
+                target: "es2022",
+              },
             },
           },
         ],

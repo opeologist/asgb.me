@@ -1,0 +1,1 @@
+export { SceneComponent } from "./SceneComponent";
