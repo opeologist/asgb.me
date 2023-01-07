@@ -1,3 +1,5 @@
+export const routeNames = ["Home", "MtgVault"];
+
 export const apiUrlDeck = (_, id) =>
   `https://api.scryfall.com/decks/${id}/export/csv`;
 

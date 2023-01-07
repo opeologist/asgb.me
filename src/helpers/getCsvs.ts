@@ -1,5 +1,5 @@
 const { parse } = await import("papaparse");
-const { decks, apiUrlDeck } = await import("../constants");
+const { decks, apiUrlDeck } = await import("../../constants.mjs");
 
 export const getCsvs = async ({ setCsvsArr, setDeckNames }) => {
   const csvsArr = [];
