@@ -7,6 +7,7 @@ export default ({ isDev }) => ({
         server: {
           type: "spdy",
         },
+        historyApiFallback: true,
       }
     : undefined,
   devtool: isDev ? "source-map" : false,

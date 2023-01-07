@@ -26,8 +26,10 @@ const { Texture } = await import("@babylonjs/core/Materials/Textures/texture");
 const { CreateGround } = await import(
   "@babylonjs/core/Meshes/Builders/groundBuilder"
 );
-const { SceneComponent } = await import("../SceneComponent");
-const { getQueryParameter } = await import("../../helpers/getQueryParameter");
+const { SceneComponent } = await import("../../SceneComponent");
+const { getQueryParameter } = await import(
+  "../../../helpers/getQueryParameter"
+);
 
 const methods = {
   Vector2,
@@ -192,7 +194,7 @@ const onSceneReady = (scene: Scene) => {
   );
 };
 
-export const App: FC = () => (
+export const Home: FC = () => (
   <SceneComponent
     antialias
     onSceneReady={onSceneReady}
