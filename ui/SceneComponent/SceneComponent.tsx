@@ -1,12 +1,14 @@
+"use client";
+
 import type {
   EngineOptions,
   Scene as SceneType,
   SceneOptions,
 } from "@babylonjs/core";
+import { Engine, Scene } from "@babylonjs/core";
 import type { FC } from "react";
-
-const { Engine, Scene } = await import("@babylonjs/core");
-const { useEffect, useRef } = await import("react");
+import { useEffect, useRef } from "react";
+import styles from "../../styles/global.module.css";
 
 interface SceneComponentProps {
   antialias?: boolean;
@@ -28,6 +30,7 @@ export const SceneComponent: FC<SceneComponentProps> = ({
   ...rest
 }) => {
   const reactCanvas = useRef(null);
+  const { canvas } = styles;
 
   useEffect(() => {
     if (reactCanvas.current) {
@@ -43,9 +46,9 @@ export const SceneComponent: FC<SceneComponentProps> = ({
       };
 
       if (scene.isReady()) {
-        onSceneReady(scene);
+        onSceneReady!(scene);
       } else {
-        scene.onReadyObservable.addOnce((scene) => onSceneReady(scene));
+        scene.onReadyObservable.addOnce((scene) => onSceneReady!(scene));
       }
 
       engine.runRenderLoop(() => {
@@ -68,7 +71,15 @@ export const SceneComponent: FC<SceneComponentProps> = ({
         }
       };
     }
-  }, [reactCanvas]);
+  }, [
+    adaptToDeviceRatio,
+    antialias,
+    engineOptions,
+    onRender,
+    onSceneReady,
+    reactCanvas,
+    sceneOptions,
+  ]);
 
-  return <canvas ref={reactCanvas} {...rest} />;
+  return <canvas ref={reactCanvas} {...rest} className={canvas} />;
 };

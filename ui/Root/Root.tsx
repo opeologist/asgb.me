@@ -1,35 +1,29 @@
-import type { Scene } from "@babylonjs/core";
-import type { FC } from "react";
+"use client";
 
-const { Vector2, Vector3 } = await import("@babylonjs/core");
-const { Color3, Color4 } = await import("@babylonjs/core/Maths/math.color");
-const { Path2, Curve3 } = await import("@babylonjs/core/Maths/math.path");
-const { Mesh } = await import("@babylonjs/core/Meshes/mesh");
-const { CSG } = await import("@babylonjs/core/Meshes/csg");
-const { PolygonMeshBuilder } = await import(
-  "@babylonjs/core/Meshes/polygonMesh"
-);
-const { SolidParticleSystem } = await import(
-  "@babylonjs/core/Particles/solidParticleSystem"
-);
-const { StandardMaterial } = await import(
-  "@babylonjs/core/Materials/standardMaterial"
-);
-const { MeshWriter } = await import("meshwriter");
-const { Animation } = await import("@babylonjs/core/Animations/animation");
-const { CubicEase, EasingFunction } = await import(
-  "@babylonjs/core/Animations/easing"
-);
-const { ArcRotateCamera, HemisphericLight } = await import("@babylonjs/core");
-const { GridMaterial } = await import("@babylonjs/materials/grid/gridMaterial");
-const { Texture } = await import("@babylonjs/core/Materials/Textures/texture");
-const { CreateGround } = await import(
-  "@babylonjs/core/Meshes/Builders/groundBuilder"
-);
-const { SceneComponent } = await import("../../SceneComponent");
-const { getQueryParameter } = await import(
-  "../../../helpers/getQueryParameter"
-);
+import type { Scene } from "@babylonjs/core";
+import {
+  ArcRotateCamera,
+  HemisphericLight,
+  Vector2,
+  Vector3,
+} from "@babylonjs/core";
+import { Animation } from "@babylonjs/core/Animations/animation";
+import { CubicEase, EasingFunction } from "@babylonjs/core/Animations/easing";
+import { StandardMaterial } from "@babylonjs/core/Materials/standardMaterial";
+import { Texture } from "@babylonjs/core/Materials/Textures/texture";
+import { Color3, Color4 } from "@babylonjs/core/Maths/math.color";
+import { Curve3, Path2 } from "@babylonjs/core/Maths/math.path";
+import { CreateGround } from "@babylonjs/core/Meshes/Builders/groundBuilder";
+import { CSG } from "@babylonjs/core/Meshes/csg";
+import { Mesh } from "@babylonjs/core/Meshes/mesh";
+import { PolygonMeshBuilder } from "@babylonjs/core/Meshes/polygonMesh";
+import { SolidParticleSystem } from "@babylonjs/core/Particles/solidParticleSystem";
+import { GridMaterial } from "@babylonjs/materials/grid/gridMaterial";
+/* @ts-expect-error: No Meshwriter Types */
+import { MeshWriter } from "meshwriter";
+import "normalize.css";
+import { getQueryParameter } from "../../helpers/getQueryParameter";
+import { SceneComponent } from "../SceneComponent";
 
 const methods = {
   Vector2,
@@ -194,13 +188,15 @@ const onSceneReady = (scene: Scene) => {
   );
 };
 
-export const Home: FC = () => (
-  <main>
-    <SceneComponent
-      antialias
-      onSceneReady={onSceneReady}
-      id="canvas"
-      adaptToDeviceRatio
-    />
-  </main>
-);
+export default function Root() {
+  return (
+    <main>
+      <SceneComponent
+        antialias
+        onSceneReady={onSceneReady}
+        id="canvas"
+        adaptToDeviceRatio
+      />
+    </main>
+  );
+}

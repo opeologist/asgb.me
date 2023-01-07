@@ -1,9 +1,9 @@
-export default function Head() {
+export default function RootHead() {
   return (
     <>
-      <title></title>
+      <title>Aaron Giordano-Barry</title>
       <meta content="width=device-width, initial-scale=1" name="viewport" />
-      <link rel="icon" href="/favicon.ico" />
+      <link rel="icon" href="data:image/x-icon;," />
     </>
-  )
+  );
 }

@@ -1,10 +1,15 @@
-body {
+.html {
+  background: #20213b;
+}
+
+.body {
   color: #fff;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-#canvas {
+.canvas {
   width: 100%;
   height: calc(100vh - 3px);
+  outline: none;
 }
