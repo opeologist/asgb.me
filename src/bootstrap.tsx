@@ -4,8 +4,6 @@ const { createBrowserRouter, RouterProvider } = await import(
   "react-router-dom"
 );
 const { paramCase } = await import("param-case");
-const { Home } = await import("./components/pages/Home");
-const { MtgVault } = await import("./components/pages/MtgVault");
 const { getQueryParameter } = await import("./helpers/getQueryParameter");
 const { routeNames } = await import("../constants.mjs");
 
@@ -16,15 +14,22 @@ if (getQueryParameter("debug")) {
   await import("@babylonjs/inspector");
 }
 
-const routes = routeNames.map((RouteName) => ({
-  path: RouteName === "Home" ? "/" : `/${paramCase(RouteName)}`,
-  element: <RouteName />,
-}));
+const routesPromises = routeNames.map(async (RouteName) => {
+  const Component = await import(`./components/pages/${RouteName}`);
+  const RouteComponent = Component[RouteName];
 
-const router = createBrowserRouter(routes);
+  return {
+    path: RouteName === "Home" ? "/" : `/${paramCase(RouteName)}`,
+    element: <RouteComponent />,
+  };
+});
 
-createRoot(document.getElementById("app")).render(
-  <StrictMode>
-    <RouterProvider router={router} />
-  </StrictMode>
-);
+Promise.all(routesPromises).then((routes) => {
+  const router = createBrowserRouter(routes);
+
+  createRoot(document.getElementById("app")).render(
+    <StrictMode>
+      <RouterProvider router={router} />
+    </StrictMode>
+  );
+});
