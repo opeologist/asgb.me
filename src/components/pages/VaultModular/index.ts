@@ -1,0 +1,1 @@
+export { VaultModular } from "./VaultModular";

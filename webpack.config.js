@@ -1,6 +1,6 @@
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import ReactRefreshPlugin from "@pmmmwh/react-refresh-webpack-plugin";
-import { routeNames } from "./constants.mjs";
+import { routeNames } from "./constants/index.mjs";
 import { paramCase } from "param-case";
 
 export default ({ isDev }) => ({
@@ -49,6 +49,7 @@ export default ({ isDev }) => ({
     ],
   },
   output: {
+    publicPath: "/",
     chunkFilename: "[name].[contenthash].js",
     clean: true,
     filename: "[name].[contenthash].js",
@@ -59,16 +60,16 @@ export default ({ isDev }) => ({
         isDev,
       },
     }),
-    ...routeNames.map(
-      (routeName) =>
-        routeName !== "Home" &&
-        new HtmlWebpackPlugin({
-          templateParameters: {
-            isDev,
-          },
-          filename: `${paramCase(routeName)}/index.html`,
-        })
-    ),
+    // ...routeNames.map(
+    //   (routeName) =>
+    //     routeName !== "Home" &&
+    //     new HtmlWebpackPlugin({
+    //       templateParameters: {
+    //         isDev,
+    //       },
+    //       filename: `${paramCase(routeName)}/index.html`,
+    //     })
+    // ),
     isDev && new ReactRefreshPlugin(),
   ].filter(Boolean),
   resolve: {

@@ -1,6 +1,4 @@
-export const routeNames = ["Home", "MtgVault"];
-
-export const apiUrlDeck = (_, id) =>
+export const deckApiUrl = (_, id) =>
   `https://api.scryfall.com/decks/${id}/export/csv`;
 
 export const decks = [

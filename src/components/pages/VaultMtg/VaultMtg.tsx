@@ -1,7 +1,7 @@
 const { useEffect, useState } = await import("react");
-const { getCsvs } = await import("../../../helpers/getCsvs");
+const { getMtgData } = await import("../../../helpers/getMtgData");
 
-export const MtgVault = () => {
+export const VaultMtg = () => {
   const [csvsArr, setCsvsArr] = useState(null);
   const [deckNames, setDeckNames] = useState(null);
   const [deckSets, setDeckSets] = useState(null);
@@ -9,7 +9,7 @@ export const MtgVault = () => {
 
   useEffect(() => {
     const asyncGetCsv = async () => {
-      await getCsvs({ setCsvsArr, setDeckNames });
+      await getMtgData({ setCsvsArr, setDeckNames });
     };
 
     asyncGetCsv();
@@ -37,12 +37,13 @@ export const MtgVault = () => {
   }, [csvsArr]);
 
   return (
-    <main>
-      {<h1>Total: ${total}</h1>}
-      <hr />
-      {deckNames &&
-        deckSets &&
-        deckNames.map((deckName, i) => (
+    total &&
+    deckNames &&
+    deckSets && (
+      <main>
+        <h1>Total: ${total}</h1>
+        <hr />
+        {deckNames.map((deckName, i) => (
           <section key={i}>
             <h2 key={`${deckName}${i}`}>
               {deckName} ({deckSets[i].toUpperCase()})
@@ -50,6 +51,7 @@ export const MtgVault = () => {
             <h3>{csvsArr[i][1][5]}</h3>
           </section>
         ))}
-    </main>
+      </main>
+    )
   );
 };

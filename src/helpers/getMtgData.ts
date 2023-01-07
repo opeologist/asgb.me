@@ -1,7 +1,7 @@
 const { parse } = await import("papaparse");
-const { decks, apiUrlDeck } = await import("../../constants.mjs");
+const { decks, deckApiUrl } = await import("../../constants/mtg.mjs");
 
-export const getCsvs = async ({ setCsvsArr, setDeckNames }) => {
+export const getMtgData = ({ setCsvsArr, setDeckNames }) => {
   const csvsArr = [];
   const deckNamesArr = [];
 
@@ -10,7 +10,7 @@ export const getCsvs = async ({ setCsvsArr, setDeckNames }) => {
       deckNamesArr.push(name);
 
       try {
-        const response = await fetch(apiUrlDeck`${id}`);
+        const response = await fetch(deckApiUrl`${id}`);
         const result = await response.text();
 
         parse(result, {

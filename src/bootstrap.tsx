@@ -3,9 +3,9 @@ const { createRoot } = await import("react-dom/client");
 const { createBrowserRouter, RouterProvider } = await import(
   "react-router-dom"
 );
-const { paramCase } = await import("param-case");
+const { pathCase } = await import("path-case");
 const { getQueryParameter } = await import("./helpers/getQueryParameter");
-const { routeNames } = await import("../constants.mjs");
+const { routeNames } = await import("../constants/index.mjs");
 
 await import("normalize.css");
 await import("./bootstrap.css");
@@ -14,13 +14,13 @@ if (getQueryParameter("debug")) {
   await import("@babylonjs/inspector");
 }
 
-const routesPromises = routeNames.map(async (RouteName) => {
-  const Component = await import(`./components/pages/${RouteName}`);
-  const RouteComponent = Component[RouteName];
+const routesPromises = routeNames.map(async ({ name }) => {
+  const Component = await import(`./components/pages/${name}`);
+  const Element = Component[name];
 
   return {
-    path: RouteName === "Home" ? "/" : `/${paramCase(RouteName)}`,
-    element: <RouteComponent />,
+    path: `${name === "Home" ? "/" : `/${pathCase(name)}`}`,
+    element: <Element />,
   };
 });
 
