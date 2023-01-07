@@ -195,10 +195,12 @@ const onSceneReady = (scene: Scene) => {
 };
 
 export const Home: FC = () => (
-  <SceneComponent
-    antialias
-    onSceneReady={onSceneReady}
-    id="canvas"
-    adaptToDeviceRatio
-  />
+  <main>
+    <SceneComponent
+      antialias
+      onSceneReady={onSceneReady}
+      id="canvas"
+      adaptToDeviceRatio
+    />
+  </main>
 );

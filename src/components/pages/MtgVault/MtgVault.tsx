@@ -37,7 +37,7 @@ export const MtgVault = () => {
   }, [csvsArr]);
 
   return (
-    <>
+    <main>
       {<h1>Total: ${total}</h1>}
       <hr />
       {deckNames &&
@@ -50,6 +50,6 @@ export const MtgVault = () => {
             <h3>{csvsArr[i][1][5]}</h3>
           </section>
         ))}
-    </>
+    </main>
   );
 };
