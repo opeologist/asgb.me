@@ -1,3 +1,4 @@
+import RackContents from "./RackContents";
 import Total from "./Total";
 
 export default async function Modular() {
@@ -13,8 +14,7 @@ export default async function Modular() {
     <main>
       <Total htmls={htmls} />
       <hr />
-      {/* @ts-expect-error */}
-      {rackNames && rackNames.map((rack) => <h2 key={rack}>{rack}</h2>)}
+      <RackContents htmls={htmls} rackNames={rackNames} />
     </main>
   );
 }
