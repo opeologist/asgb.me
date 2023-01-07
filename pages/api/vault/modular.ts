@@ -1,21 +1,39 @@
 export default async function handler() {
   const racks = [
-    "https://www.modulargrid.net/e/racks/view/1683745",
-    "https://www.modulargrid.net/e/racks/view/1683740",
-    "https://www.modulargrid.net/e/racks/view/1683726",
+    {
+      name: "monitor stand 2",
+      url: "https://www.modulargrid.net/e/racks/view/1683745",
+    },
+    {
+      name: "monitor stand 1",
+      url: "https://www.modulargrid.net/e/racks/view/1683740",
+    },
+    {
+      name: "desk",
+      url: "https://www.modulargrid.net/e/racks/view/1683726",
+    },
   ];
   // @ts-expect-error
-  const data = [];
+  const htmls = [];
+  // @ts-expect-error
+  const rackNames = [];
 
   await Promise.all(
-    racks.map(async (rack) => {
-      const response = await fetch(rack);
+    racks.map(async ({ name, url }) => {
+      const response = await fetch(url);
       const result = await response.text();
 
-      data.push(result);
+      htmls.push(result);
+      rackNames.push(name);
     })
   );
 
-  // @ts-expect-error
-  return new Response(JSON.stringify(data));
+  return new Response(
+    JSON.stringify({
+      // @ts-expect-error
+      htmls,
+      // @ts-expect-error
+      rackNames,
+    })
+  );
 }

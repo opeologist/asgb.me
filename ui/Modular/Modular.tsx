@@ -6,12 +6,14 @@ import { getModularData } from "../../helpers/getModularData";
 export default function Modular() {
   const [modularData, setModularData] = useState(null);
   const [total, setTotal] = useState(null);
+  const [rackNames, setRackNames] = useState(null);
 
   useEffect(() => {
     const getModularDataAsync = async () => {
       const data = await getModularData();
 
-      setModularData(data);
+      setModularData(data.htmls);
+      setRackNames(data.rackNames);
     };
 
     getModularDataAsync();
@@ -40,6 +42,9 @@ export default function Modular() {
     total && (
       <main>
         <h1>Total: ${total}</h1>
+        <hr />
+        {/* @ts-expect-error */}
+        {rackNames && rackNames.map((rack) => <h2 key={rack}>{rack}</h2>)}
       </main>
     )
   );
