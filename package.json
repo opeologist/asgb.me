@@ -1,7 +1,6 @@
 {
   "name": "asgb.me",
   "version": "1.0.0",
-  "description": "",
   "scripts": {
     "build": "next build",
     "start": "next dev",
