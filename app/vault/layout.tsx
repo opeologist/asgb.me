@@ -6,9 +6,9 @@ export default function VaultLayout({
   children: React.ReactNode;
 }) {
   return (
-    <main>
+    <>
       <LayoutHeader />
       {children}
-    </main>
+    </>
   );
 }

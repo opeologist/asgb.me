@@ -11,10 +11,10 @@ export default async function Modular() {
   const { htmls, rackNames } = data;
 
   return (
-    <>
+    <main>
       <Total htmls={htmls} />
       <hr />
       <RackContents htmls={htmls} rackNames={rackNames} />
-    </>
+    </main>
   );
 }
