@@ -26,8 +26,7 @@ export default async function Mtg() {
   );
   // @ts-expect-error
   csvs.forEach((csv) => {
-    console.log(csv);
-    deckSetsArr.push(csv[1][6]);
+    csv[1][6] && deckSetsArr.push(csv[1][6]);
     // @ts-expect-error
     csv.forEach((row, i) => {
       if (i !== 0) {
