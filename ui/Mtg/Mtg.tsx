@@ -24,7 +24,6 @@ export default async function Mtg() {
       });
     })
   );
-  // @ts-expect-error
   console.log(csvs);
   // @ts-expect-error
   csvs.forEach((csv) => {
