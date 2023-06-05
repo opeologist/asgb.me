@@ -87,4 +87,19 @@ export const decks = [
     set: "VOW",
     id: "2da9e13f-c8c9-4fa7-89c3-7f66f0dd4b5d",
   },
+  {
+    name: "Green Folio 2",
+    set: "MAT",
+    id: "6db31101-d197-4a4a-af3a-260840cb8da6",
+  },
+  {
+    name: "Green Folio 2",
+    set: "J22",
+    id: "55007993-32b2-45dc-91e8-3f84941c86d6",
+  },
+  {
+    name: "Green Folio 2",
+    set: "ONE",
+    id: "16113fcb-3756-466f-9cd0-2814b0a8d660",
+  },
 ];
