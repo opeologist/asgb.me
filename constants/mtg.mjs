@@ -107,4 +107,9 @@ export const decks = [
     set: "CMM",
     id: "6fb31460-b580-4bf3-bbea-a445564d4f9f",
   },
+  {
+    name: "Magic Binder 2",
+    set: "LTR",
+    id: "4e883aee-65fa-4350-a353-65091318769c",
+  },
 ];
