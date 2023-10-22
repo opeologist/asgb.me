@@ -102,4 +102,9 @@ export const decks = [
     set: "ONE",
     id: "16113fcb-3756-466f-9cd0-2814b0a8d660",
   },
+  {
+    name: "White Folio",
+    set: "CMM",
+    id: "6fb31460-b580-4bf3-bbea-a445564d4f9f",
+  },
 ];
