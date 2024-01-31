@@ -122,4 +122,9 @@ export const decks = [
     set: "LCI",
     id: "3e4427c0-7b74-4e86-af06-59b961613afb",
   },
+  {
+    name: "White Folio",
+    set: "SLD",
+    id: "d31dc0bc-4b9e-4030-9490-bbd16fad69a4",
+  },
 ];
