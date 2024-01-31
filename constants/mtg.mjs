@@ -117,4 +117,9 @@ export const decks = [
     set: "WOE",
     id: "8a97d33d-6297-4e4e-8c6c-33799ad11e60",
   },
+  {
+    name: "Magic Binder 2",
+    set: "LCI",
+    id: "3e4427c0-7b74-4e86-af06-59b961613afb",
+  },
 ];
