@@ -127,4 +127,9 @@ export const decks = [
     set: "SLD",
     id: "d31dc0bc-4b9e-4030-9490-bbd16fad69a4",
   },
+  {
+    name: "Magic Binder 1",
+    set: "PIP",
+    id: "5898c030-f079-4768-9eb1-edb548b32717",
+  },
 ];
