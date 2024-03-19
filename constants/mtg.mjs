@@ -132,4 +132,9 @@ export const decks = [
     set: "PIP",
     id: "5898c030-f079-4768-9eb1-edb548b32717",
   },
+  {
+    name: "Magic Binder 1",
+    set: "RVR",
+    id: "975148a5-66ce-4e96-acbe-6bbcee37daca",
+  },
 ];
