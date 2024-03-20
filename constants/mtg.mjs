@@ -137,4 +137,9 @@ export const decks = [
     set: "RVR",
     id: "975148a5-66ce-4e96-acbe-6bbcee37daca",
   },
+  {
+    name: "Black Folio",
+    set: "MKM",
+    id: "c4e711c2-d3a2-4736-80b6-927fbb664bdc",
+  },
 ];
