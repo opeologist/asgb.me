@@ -1,16 +1,20 @@
-import styles from "../styles/global.module.css";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+
+const inter = Inter({ subsets: ["latin"] });
+
+export const metadata: Metadata = {
+  title: "Aaron Giordano-Barry",
+};
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
-  const { body, html } = styles;
-
+}>) {
   return (
-    <html className={html}>
-      <head />
-      <body className={body}>{children}</body>
+    <html lang="en">
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }

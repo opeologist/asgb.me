@@ -1,9 +1,7 @@
-import Root from "../ui/Root";
-
-export default function RootPage() {
+export default function HomePage() {
   return (
-    <>
-      <Root />
-    </>
+    <main>
+      <h1>ASGB</h1>
+    </main>
   );
 }

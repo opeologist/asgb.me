@@ -1,6 +1,3 @@
-export const deckApiUrl = (_, id) =>
-  `https://api.scryfall.com/decks/${id}/export/csv`;
-
 export const decks = [
   {
     name: "White Folio",

@@ -1,10 +1,7 @@
-import Modular from "../../../ui/Modular";
-
-export default function VaultModularPage() {
+export default function ModularPage() {
   return (
-    <>
-      {/* @ts-expect-error Server Component */}
-      <Modular />
-    </>
+    <main>
+      <h1>Modular</h1>
+    </main>
   );
 }
