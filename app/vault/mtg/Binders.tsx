@@ -25,6 +25,7 @@ export const Binders: FC<BindersProps> = ({
     const prevDay = Object.keys(prevBinders)[0];
     const today = new Date().toISOString().split("T")[0];
     let updatedBinders;
+    let updatedTotals;
 
     if (prevDay !== today) {
       updatedBinders = Object.entries(latestBinders).reduce(
@@ -70,11 +71,14 @@ export const Binders: FC<BindersProps> = ({
         "binders",
         JSON.stringify({ [today]: updatedBinders }),
       );
-      localStorage.setItem("totals", JSON.stringify([...prevTotals, total]));
+
+      updatedTotals = [...prevTotals, total];
+
+      localStorage.setItem("totals", JSON.stringify(updatedTotals));
     }
 
     setBinders(updatedBinders ?? prevBinders[prevDay]);
-    setTotals(prevTotals);
+    setTotals(updatedTotals ?? prevTotals);
   }, [latestBinders, total]);
 
   return (
