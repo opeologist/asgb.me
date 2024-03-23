@@ -85,10 +85,10 @@ export const Binders: FC<BindersProps> = ({
           Total:{" "}
           <span
             className={clsx(
-              totals?.[totals.length - 1] === "0" ||
-                totals?.[totals.length - 1] === total
+              totals[totals.length - 1] === "0" ||
+                totals[totals.length - 1] === total
                 ? null
-                : (totals?.[totals.length - 1] ?? "0") < total
+                : totals[totals.length - 1] < total
                   ? styles.positive
                   : styles.negative,
             )}
