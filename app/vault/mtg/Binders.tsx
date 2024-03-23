@@ -78,7 +78,8 @@ export const Binders: FC<BindersProps> = ({
   }, [latestBinders, total]);
 
   return (
-    binders && (
+    binders &&
+    totals && (
       <>
         <h2>
           Total:{" "}
