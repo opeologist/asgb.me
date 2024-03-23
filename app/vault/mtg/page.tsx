@@ -1,29 +1,31 @@
-import Link from "next/link";
 import { parse } from "papaparse";
-import { Cards } from "./Cards";
+import { Binders } from "./Binders";
 import { decks } from "./decks";
 
-interface Binders {
+export interface Binders {
   [key: string]: Binder;
 }
 
-interface Binder {
+export interface Binder {
   sets: Set[];
-  value: number;
+  value: string;
+  prevValues?: string[];
 }
 
 interface Set {
   cards: Card[];
   id: string;
   name: string;
-  value: number;
+  value: string;
+  prevValues?: string[];
 }
 
 export interface Card {
   id: string;
   name: string;
   url: string;
-  value: number;
+  value: string;
+  prevValues?: string[];
 }
 
 const deckApiUrl = (_: TemplateStringsArray, id: string) =>
@@ -31,7 +33,7 @@ const deckApiUrl = (_: TemplateStringsArray, id: string) =>
 
 export default async function MtgPage() {
   const binders: Binders = {};
-  let total = 0;
+  let total = "0";
 
   await Promise.all(
     decks.map(async ({ id, name, set }) => {
@@ -47,7 +49,7 @@ export default async function MtgPage() {
               cards: [],
               id,
               name: set,
-              value: 0,
+              value: "0",
             });
           } else {
             binders[name] = {
@@ -56,10 +58,10 @@ export default async function MtgPage() {
                   cards: [],
                   id,
                   name: set,
-                  value: 0,
+                  value: "0",
                 },
               ],
-              value: 0,
+              value: "0",
             };
           }
 
@@ -70,12 +72,18 @@ export default async function MtgPage() {
                   id,
                   name: cardName,
                   url,
-                  value: Number(value),
+                  value: Number(value).toFixed(2),
                 });
-                binders[name].sets[binders[name].sets.length - 1].value +=
-                  Number(value);
-                binders[name].value += Number(value);
-                total += Number(value);
+                binders[name].sets[binders[name].sets.length - 1].value =
+                  Number(
+                    Number(
+                      binders[name].sets[binders[name].sets.length - 1].value,
+                    ) + Number(value),
+                  ).toFixed(2);
+                binders[name].value = Number(
+                  Number(Number(binders[name].value)) + Number(value),
+                ).toFixed(2);
+                total = Number(Number(total) + Number(value)).toFixed(2);
               }
             },
           );
@@ -87,35 +95,7 @@ export default async function MtgPage() {
   return (
     <main>
       <h1>MTG</h1>
-      <h2>Total: ${total.toFixed(2)}</h2>
-      <ul>
-        {Object.entries(binders)
-          .sort(([, { value }], [, { value: bValue }]) => bValue - value)
-          .map(([name, { sets, value }]) => (
-            <li key={name}>
-              <h3>
-                {name}: ${value.toFixed(2)}
-              </h3>
-              <ul>
-                {sets
-                  .sort((a, b) => b.value - a.value)
-                  .map(({ cards, id, name, value }, i) => (
-                    <li key={`${name}${i}`}>
-                      <strong>
-                        <Link
-                          href={`https://scryfall.com/@opeologist/decks/${id}`}
-                        >
-                          {name}
-                        </Link>
-                      </strong>{" "}
-                      ({cards.length}): ${value.toFixed(2)}
-                      <Cards cards={cards} />
-                    </li>
-                  ))}
-              </ul>
-            </li>
-          ))}
-      </ul>
+      <Binders binders={binders} total={total} />
     </main>
   );
 }

@@ -1,10 +1,12 @@
 "use client";
 
+import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
-import { FC, useState } from "react";
+import { useState, type FC } from "react";
+import bindersStyles from "./Binders.module.css";
 import styles from "./Cards.module.css";
-import { Card } from "./page";
+import type { Card } from "./page";
 
 interface CardsProps {
   cards: Card[];
@@ -24,8 +26,8 @@ export const Cards: FC<CardsProps> = ({ cards }) => {
       {isGridVisible && (
         <ul className={styles.cards}>
           {cards
-            .sort((a, b) => b.value - a.value)
-            .map(({ id, name, url, value }, i) => (
+            .sort((a, b) => Number(b.value) - Number(a.value))
+            .map(({ id, name, url, value, prevValues }, i) => (
               <li key={`${id}${i}`} className={styles.card}>
                 <Link href={url} target="_blank" rel="noopener noreferrer">
                   <Image
@@ -37,7 +39,19 @@ export const Cards: FC<CardsProps> = ({ cards }) => {
                   />
                 </Link>
                 <div className={styles.textContainer}>
-                  <span>{name}</span> <span>${value.toFixed(2)}</span>
+                  <span>{name}</span>{" "}
+                  <span
+                    className={clsx(
+                      prevValues?.[prevValues.length - 1] === "0" ||
+                        prevValues?.[prevValues.length - 1] === value
+                        ? null
+                        : (prevValues?.[prevValues.length - 1] ?? "0") < value
+                          ? bindersStyles.positive
+                          : bindersStyles.negative,
+                    )}
+                  >
+                    ${value}
+                  </span>
                 </div>
               </li>
             ))}
