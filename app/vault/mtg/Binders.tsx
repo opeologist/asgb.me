@@ -156,6 +156,7 @@ export const Binders: FC<BindersProps> = ({
                 yAxis: {
                   axis: "y",
                   min: 0,
+                  display: false,
                 },
               },
             }}
