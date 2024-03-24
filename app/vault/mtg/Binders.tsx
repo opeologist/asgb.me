@@ -98,7 +98,7 @@ export const Binders: FC<BindersProps> = ({
           >
             ${total}
           </span>
-          {totals.length > 1 && ` (previous: ${totals[totals.length - 2]})`}
+          {totals.length > 1 && ` (prev: $${totals[totals.length - 2]})`}
         </h2>
         <ul>
           {Object.entries(binders)
@@ -124,7 +124,7 @@ export const Binders: FC<BindersProps> = ({
                   </span>
                   {prevValues &&
                     prevValues.length > 1 &&
-                    ` (previous: ${prevValues[prevValues.length - 2]})`}
+                    ` (prev: $${prevValues[prevValues.length - 2]})`}
                 </h3>
                 <ul>
                   {sets
@@ -154,7 +154,7 @@ export const Binders: FC<BindersProps> = ({
                         </span>
                         {prevValues &&
                           prevValues.length > 1 &&
-                          ` (previous: ${prevValues[prevValues.length - 2]})`}
+                          ` (prev: $${prevValues[prevValues.length - 2]})`}
                         <Cards cards={cards} />
                       </li>
                     ))}
