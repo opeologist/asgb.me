@@ -41,7 +41,7 @@ export const Binders: FC<BindersProps> = ({
   const [binders, setBinders] = useState<BindersType>();
   const [totals, setTotals] = useState<string[]>();
   const [chartData, setChartData] =
-    useState<ChartData<"line", string[], unknown>>();
+    useState<ChartData<"line", number[], unknown>>();
 
   useEffect(() => {
     const prevBinders = JSON.parse(localStorage.getItem("binders") || "{}");
@@ -133,7 +133,7 @@ export const Binders: FC<BindersProps> = ({
                       datasets: [
                         {
                           label: "Total",
-                          data: totals,
+                          data: totals.map((t) => Number(t)),
                         },
                       ],
                     });
@@ -185,7 +185,10 @@ export const Binders: FC<BindersProps> = ({
                                 datasets: [
                                   {
                                     label: "Value",
-                                    data: [...prevValues, value],
+                                    data: [
+                                      ...prevValues.map((v) => Number(v)),
+                                      Number(value),
+                                    ],
                                   },
                                 ],
                               });
@@ -240,7 +243,10 @@ export const Binders: FC<BindersProps> = ({
                                       datasets: [
                                         {
                                           label: "Value",
-                                          data: [...prevValues, value],
+                                          data: [
+                                            ...prevValues.map((v) => Number(v)),
+                                            Number(value),
+                                          ],
                                         },
                                       ],
                                     });

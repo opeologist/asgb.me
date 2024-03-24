@@ -11,9 +11,9 @@ import type { Card } from "./page";
 
 interface CardsProps {
   cards: Card[];
-  chartData?: ChartData<"line", string[], unknown>;
+  chartData?: ChartData<"line", number[], unknown>;
   setChartData: Dispatch<
-    SetStateAction<ChartData<"line", string[], unknown> | undefined>
+    SetStateAction<ChartData<"line", number[], unknown> | undefined>
   >;
 }
 
@@ -72,7 +72,10 @@ export const Cards: FC<CardsProps> = ({ cards, chartData, setChartData }) => {
                                 datasets: [
                                   {
                                     label: "Value",
-                                    data: [...prevValues, value],
+                                    data: [
+                                      ...prevValues.map((v) => Number(v)),
+                                      Number(value),
+                                    ],
                                   },
                                 ],
                               });
