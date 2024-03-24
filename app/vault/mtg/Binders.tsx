@@ -89,16 +89,16 @@ export const Binders: FC<BindersProps> = ({
           Total:{" "}
           <span
             className={clsx(
-              totals[totals.length - 1] === "0" ||
-                totals[totals.length - 1] === total
+              totals.length === 1 || totals[totals.length - 2] === total
                 ? null
-                : totals[totals.length - 1] < total
+                : totals[totals.length - 2] < total
                   ? styles.positive
                   : styles.negative,
             )}
           >
             ${total}
           </span>
+          {totals.length > 1 && ` (previous: ${totals[totals.length - 2]})`}
         </h2>
         <ul>
           {Object.entries(binders)
@@ -112,16 +112,19 @@ export const Binders: FC<BindersProps> = ({
                   {name}:{" "}
                   <span
                     className={clsx(
-                      prevValues?.[prevValues.length - 1] === "0" ||
-                        prevValues?.[prevValues.length - 1] === value
+                      prevValues?.length === 1 ||
+                        prevValues?.[prevValues.length - 2] === value
                         ? null
-                        : (prevValues?.[prevValues.length - 1] ?? "0") < value
+                        : (prevValues?.[prevValues.length - 2] ?? "0") < value
                           ? styles.positive
                           : styles.negative,
                     )}
                   >
                     ${value}
                   </span>
+                  {prevValues &&
+                    prevValues.length > 1 &&
+                    ` (previous: ${prevValues[prevValues.length - 2]})`}
                 </h3>
                 <ul>
                   {sets
@@ -138,10 +141,10 @@ export const Binders: FC<BindersProps> = ({
                         ({cards.length}):{" "}
                         <span
                           className={clsx(
-                            prevValues?.[prevValues.length - 1] === "0" ||
-                              prevValues?.[prevValues.length - 1] === value
+                            prevValues?.length === 1 ||
+                              prevValues?.[prevValues.length - 2] === value
                               ? null
-                              : (prevValues?.[prevValues.length - 1] ?? "0") <
+                              : (prevValues?.[prevValues.length - 2] ?? "0") <
                                   value
                                 ? styles.positive
                                 : styles.negative,
@@ -149,6 +152,9 @@ export const Binders: FC<BindersProps> = ({
                         >
                           ${value}
                         </span>
+                        {prevValues &&
+                          prevValues.length > 1 &&
+                          ` (previous: ${prevValues[prevValues.length - 2]})`}
                         <Cards cards={cards} />
                       </li>
                     ))}

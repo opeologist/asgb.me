@@ -42,16 +42,19 @@ export const Cards: FC<CardsProps> = ({ cards }) => {
                   <span>{name}</span>{" "}
                   <span
                     className={clsx(
-                      prevValues?.[prevValues.length - 1] === "0" ||
-                        prevValues?.[prevValues.length - 1] === value
+                      prevValues?.length === 1 ||
+                        prevValues?.[prevValues.length - 2] === value
                         ? null
-                        : (prevValues?.[prevValues.length - 1] ?? "0") < value
+                        : (prevValues?.[prevValues.length - 2] ?? "0") < value
                           ? bindersStyles.positive
                           : bindersStyles.negative,
                     )}
                   >
                     ${value}
                   </span>
+                  {prevValues &&
+                    prevValues.length > 1 &&
+                    ` (previous: ${prevValues[prevValues.length - 2]})`}
                 </div>
               </li>
             ))}
