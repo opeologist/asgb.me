@@ -1,18 +1,23 @@
 "use client";
 
+import type { ChartData } from "chart.js";
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
-import { useState, type FC } from "react";
+import { useState, type Dispatch, type FC, type SetStateAction } from "react";
 import bindersStyles from "./Binders.module.css";
 import styles from "./Cards.module.css";
 import type { Card } from "./page";
 
 interface CardsProps {
   cards: Card[];
+  chartData?: ChartData<"line", string[], unknown>;
+  setChartData: Dispatch<
+    SetStateAction<ChartData<"line", string[], unknown> | undefined>
+  >;
 }
 
-export const Cards: FC<CardsProps> = ({ cards }) => {
+export const Cards: FC<CardsProps> = ({ cards, chartData, setChartData }) => {
   const [isGridVisible, setIsGridVisible] = useState(false);
 
   return (
@@ -56,8 +61,30 @@ export const Cards: FC<CardsProps> = ({ cards }) => {
                   {prevValues &&
                     prevValues.length > 1 &&
                     prevValues[prevValues.length - 1] !== "0" &&
-                    prevValues[prevValues.length - 1] !== value &&
-                    ` (prev: $${prevValues[prevValues.length - 1]})`}
+                    prevValues[prevValues.length - 1] !== value && (
+                      <>
+                        {" "}
+                        (prev: $${prevValues[prevValues.length - 1]}){" "}
+                        <button
+                          onClick={() => {
+                            if (!chartData) {
+                              setChartData({
+                                datasets: [
+                                  {
+                                    label: "Value",
+                                    data: [...prevValues, value],
+                                  },
+                                ],
+                              });
+                            } else {
+                              setChartData(undefined);
+                            }
+                          }}
+                        >
+                          chart
+                        </button>
+                      </>
+                    )}
                 </div>
               </li>
             ))}

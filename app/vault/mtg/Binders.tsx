@@ -1,11 +1,33 @@
 "use client";
 
+import {
+  CategoryScale,
+  Chart as ChartJS,
+  Legend,
+  LineElement,
+  LinearScale,
+  PointElement,
+  Title,
+  Tooltip,
+  type ChartData,
+} from "chart.js";
 import clsx from "clsx";
 import Link from "next/link";
 import { useEffect, useState, type FC } from "react";
+import { Line } from "react-chartjs-2";
 import styles from "./Binders.module.css";
 import { Cards } from "./Cards";
 import type { Binder, Binders as BindersType } from "./page";
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+);
 
 interface BindersProps {
   binders: BindersType;
@@ -18,6 +40,8 @@ export const Binders: FC<BindersProps> = ({
 }) => {
   const [binders, setBinders] = useState<BindersType>();
   const [totals, setTotals] = useState<string[]>();
+  const [chartData, setChartData] =
+    useState<ChartData<"line", string[], unknown>>();
 
   useEffect(() => {
     const prevBinders = JSON.parse(localStorage.getItem("binders") || "{}");
@@ -98,8 +122,32 @@ export const Binders: FC<BindersProps> = ({
           >
             ${total}
           </span>
-          {totals.length > 1 && ` (prev: $${totals[totals.length - 2]})`}
+          {totals.length > 1 && (
+            <>
+              {" "}
+              (prev: ${totals[totals.length - 2]}){" "}
+              <button
+                onClick={() => {
+                  if (!chartData) {
+                    setChartData({
+                      datasets: [
+                        {
+                          label: "Total",
+                          data: totals,
+                        },
+                      ],
+                    });
+                  } else {
+                    setChartData(undefined);
+                  }
+                }}
+              >
+                chart
+              </button>
+            </>
+          )}
         </h2>
+        {chartData && <Line data={chartData} />}
         <ul>
           {Object.entries(binders)
             .sort(
@@ -126,8 +174,30 @@ export const Binders: FC<BindersProps> = ({
                   {prevValues &&
                     prevValues.length > 1 &&
                     prevValues[prevValues.length - 1] !== "0" &&
-                    prevValues[prevValues.length - 1] !== value &&
-                    ` (prev: $${prevValues[prevValues.length - 1]})`}
+                    prevValues[prevValues.length - 1] !== value && (
+                      <>
+                        {" "}
+                        (prev: ${prevValues[prevValues.length - 1]}){" "}
+                        <button
+                          onClick={() => {
+                            if (!chartData) {
+                              setChartData({
+                                datasets: [
+                                  {
+                                    label: "Value",
+                                    data: [...prevValues, value],
+                                  },
+                                ],
+                              });
+                            } else {
+                              setChartData(undefined);
+                            }
+                          }}
+                        >
+                          chart
+                        </button>
+                      </>
+                    )}
                 </h3>
                 <ul>
                   {sets
@@ -159,9 +229,35 @@ export const Binders: FC<BindersProps> = ({
                         {prevValues &&
                           prevValues.length > 1 &&
                           prevValues[prevValues.length - 1] !== "0" &&
-                          prevValues[prevValues.length - 1] !== value &&
-                          ` (prev: $${prevValues[prevValues.length - 1]})`}
-                        <Cards cards={cards} />
+                          prevValues[prevValues.length - 1] !== value && (
+                            <>
+                              {" "}
+                              (prev: ${prevValues[prevValues.length - 1]}){" "}
+                              <button
+                                onClick={() => {
+                                  if (!chartData) {
+                                    setChartData({
+                                      datasets: [
+                                        {
+                                          label: "Value",
+                                          data: [...prevValues, value],
+                                        },
+                                      ],
+                                    });
+                                  } else {
+                                    setChartData(undefined);
+                                  }
+                                }}
+                              >
+                                chart
+                              </button>
+                            </>
+                          )}
+                        <Cards
+                          cards={cards}
+                          chartData={chartData}
+                          setChartData={setChartData}
+                        />
                       </li>
                     ))}
                 </ul>
