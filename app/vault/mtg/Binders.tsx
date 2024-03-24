@@ -130,6 +130,7 @@ export const Binders: FC<BindersProps> = ({
                 onClick={() => {
                   if (!chartData) {
                     setChartData({
+                      labels: totals.map((_, i) => i).map((i) => i.toString()),
                       datasets: [
                         {
                           label: "Total",
@@ -182,6 +183,12 @@ export const Binders: FC<BindersProps> = ({
                           onClick={() => {
                             if (!chartData) {
                               setChartData({
+                                labels: [
+                                  ...prevValues
+                                    .map((_, i) => i)
+                                    .map((i) => i.toString()),
+                                  "latest",
+                                ],
                                 datasets: [
                                   {
                                     label: "Value",
@@ -240,6 +247,12 @@ export const Binders: FC<BindersProps> = ({
                                 onClick={() => {
                                   if (!chartData) {
                                     setChartData({
+                                      labels: [
+                                        ...prevValues
+                                          .map((_, i) => i)
+                                          .map((i) => i.toString()),
+                                        "latest",
+                                      ],
                                       datasets: [
                                         {
                                           label: "Value",

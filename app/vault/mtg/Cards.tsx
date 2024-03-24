@@ -69,6 +69,12 @@ export const Cards: FC<CardsProps> = ({ cards, chartData, setChartData }) => {
                           onClick={() => {
                             if (!chartData) {
                               setChartData({
+                                labels: [
+                                  ...prevValues
+                                    .map((_, i) => i)
+                                    .map((i) => i.toString()),
+                                  "latest",
+                                ],
                                 datasets: [
                                   {
                                     label: "Value",
