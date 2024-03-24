@@ -113,6 +113,7 @@ export const Binders: FC<BindersProps> = ({
                   <span
                     className={clsx(
                       prevValues?.length === 1 ||
+                        prevValues?.[prevValues.length - 2] === "0" ||
                         prevValues?.[prevValues.length - 2] === value
                         ? null
                         : (prevValues?.[prevValues.length - 2] ?? "0") < value
@@ -143,6 +144,7 @@ export const Binders: FC<BindersProps> = ({
                         <span
                           className={clsx(
                             prevValues?.length === 1 ||
+                              prevValues?.[prevValues.length - 2] === "0" ||
                               prevValues?.[prevValues.length - 2] === value
                               ? null
                               : (prevValues?.[prevValues.length - 2] ?? "0") <
