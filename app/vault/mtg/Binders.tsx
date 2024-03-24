@@ -113,10 +113,10 @@ export const Binders: FC<BindersProps> = ({
                   <span
                     className={clsx(
                       prevValues?.length === 1 ||
-                        prevValues?.[prevValues.length - 2] === "0" ||
-                        prevValues?.[prevValues.length - 2] === value
+                        prevValues?.[prevValues.length - 1] === "0" ||
+                        prevValues?.[prevValues.length - 1] === value
                         ? null
-                        : (prevValues?.[prevValues.length - 2] ?? "0") < value
+                        : (prevValues?.[prevValues.length - 1] ?? "0") < value
                           ? styles.positive
                           : styles.negative,
                     )}
@@ -125,8 +125,8 @@ export const Binders: FC<BindersProps> = ({
                   </span>
                   {prevValues &&
                     prevValues.length > 1 &&
-                    prevValues[prevValues.length - 2] !== "0" &&
-                    ` (prev: $${prevValues[prevValues.length - 2]})`}
+                    prevValues[prevValues.length - 1] !== "0" &&
+                    ` (prev: $${prevValues[prevValues.length - 1]})`}
                 </h3>
                 <ul>
                   {sets
@@ -144,10 +144,10 @@ export const Binders: FC<BindersProps> = ({
                         <span
                           className={clsx(
                             prevValues?.length === 1 ||
-                              prevValues?.[prevValues.length - 2] === "0" ||
-                              prevValues?.[prevValues.length - 2] === value
+                              prevValues?.[prevValues.length - 1] === "0" ||
+                              prevValues?.[prevValues.length - 1] === value
                               ? null
-                              : (prevValues?.[prevValues.length - 2] ?? "0") <
+                              : (prevValues?.[prevValues.length - 1] ?? "0") <
                                   value
                                 ? styles.positive
                                 : styles.negative,
@@ -157,8 +157,8 @@ export const Binders: FC<BindersProps> = ({
                         </span>
                         {prevValues &&
                           prevValues.length > 1 &&
-                          prevValues[prevValues.length - 2] !== "0" &&
-                          ` (prev: $${prevValues[prevValues.length - 2]})`}
+                          prevValues[prevValues.length - 1] !== "0" &&
+                          ` (prev: $${prevValues[prevValues.length - 1]})`}
                         <Cards cards={cards} />
                       </li>
                     ))}
