@@ -185,7 +185,7 @@ export const Binders: FC<BindersProps> = ({
                               setChartData({
                                 labels: [
                                   ...prevValues
-                                    .filter((v) => v !== "0")
+                                    .filter((v) => v === "0")
                                     .map((_, i) => i)
                                     .map((i) => i.toString()),
                                   "latest",
@@ -250,7 +250,7 @@ export const Binders: FC<BindersProps> = ({
                                     setChartData({
                                       labels: [
                                         ...prevValues
-                                          .filter((v) => v !== "0")
+                                          .filter((v) => v === "0")
                                           .map((_, i) => i)
                                           .map((i) => i.toString()),
                                         "latest",
