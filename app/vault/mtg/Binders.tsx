@@ -148,20 +148,7 @@ export const Binders: FC<BindersProps> = ({
             </>
           )}
         </h2>
-        {chartData && (
-          <Line
-            data={chartData}
-            options={{
-              scales: {
-                yAxis: {
-                  axis: "y",
-                  min: 0,
-                  display: false,
-                },
-              },
-            }}
-          />
-        )}
+        {chartData && <Line data={chartData} />}
         <ul>
           {Object.entries(binders)
             .sort(
