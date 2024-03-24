@@ -71,7 +71,7 @@ export const Cards: FC<CardsProps> = ({ cards, chartData, setChartData }) => {
                               setChartData({
                                 labels: [
                                   ...prevValues
-                                    .filter((v) => v === "0")
+                                    .filter((v) => v !== "0")
                                     .map((_, i) => i)
                                     .map((i) => i.toString()),
                                   "latest",
@@ -80,7 +80,9 @@ export const Cards: FC<CardsProps> = ({ cards, chartData, setChartData }) => {
                                   {
                                     label: "Value",
                                     data: [
-                                      ...prevValues.map((v) => Number(v)),
+                                      ...prevValues
+                                        .filter((v) => v !== "0")
+                                        .map((v) => Number(v)),
                                       Number(value),
                                     ],
                                   },
