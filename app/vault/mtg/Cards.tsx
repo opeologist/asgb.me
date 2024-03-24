@@ -54,6 +54,7 @@ export const Cards: FC<CardsProps> = ({ cards }) => {
                   </span>
                   {prevValues &&
                     prevValues.length > 1 &&
+                    prevValues[prevValues.length - 2] !== "0" &&
                     ` (prev: $${prevValues[prevValues.length - 2]})`}
                 </div>
               </li>

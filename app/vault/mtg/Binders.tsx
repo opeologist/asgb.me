@@ -124,6 +124,7 @@ export const Binders: FC<BindersProps> = ({
                   </span>
                   {prevValues &&
                     prevValues.length > 1 &&
+                    prevValues[prevValues.length - 2] !== "0" &&
                     ` (prev: $${prevValues[prevValues.length - 2]})`}
                 </h3>
                 <ul>
@@ -154,6 +155,7 @@ export const Binders: FC<BindersProps> = ({
                         </span>
                         {prevValues &&
                           prevValues.length > 1 &&
+                          prevValues[prevValues.length - 2] !== "0" &&
                           ` (prev: $${prevValues[prevValues.length - 2]})`}
                         <Cards cards={cards} />
                       </li>
