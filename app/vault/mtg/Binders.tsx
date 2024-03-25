@@ -1,5 +1,6 @@
 "use client";
 
+import type { ChartData } from "chart.js";
 import {
   CategoryScale,
   Chart as ChartJS,
@@ -9,15 +10,19 @@ import {
   PointElement,
   Title,
   Tooltip,
-  type ChartData,
 } from "chart.js";
 import clsx from "clsx";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState, type FC } from "react";
 import { Line } from "react-chartjs-2";
+import { Binder } from "./Binder";
 import styles from "./Binders.module.css";
-import { Cards } from "./Cards";
-import type { Binder, Binders as BindersType } from "./page";
+import type { Binder as BinderType, Binders as BindersType, Set } from "./page";
+
+interface BindersProps {
+  binders: BindersType;
+}
 
 ChartJS.register(
   CategoryScale,
@@ -29,32 +34,23 @@ ChartJS.register(
   Legend,
 );
 
-interface BindersProps {
-  binders: BindersType;
-  total: string;
-}
-
-export const Binders: FC<BindersProps> = ({
-  binders: latestBinders,
-  total,
-}) => {
+export const Binders: FC<BindersProps> = ({ binders: latestBinders }) => {
   const [binders, setBinders] = useState<BindersType>();
-  const [totals, setTotals] = useState<string[]>();
-  const [chartData, setChartData] =
-    useState<ChartData<"line", number[], unknown>>();
+  const [set, setSet] = useState<Set | undefined>();
+  const [chartData, setChartData] = useState<
+    ChartData<"line", number[], unknown> | undefined
+  >();
 
   useEffect(() => {
     const prevBinders = JSON.parse(localStorage.getItem("binders") || "{}");
-    const prevTotals = JSON.parse(localStorage.getItem("totals") || "[]");
     const prevDay = Object.keys(prevBinders)[0];
     const today = new Date().toISOString().split("T")[0];
     let updatedBinders;
-    let updatedTotals;
 
     if (prevDay !== today) {
       updatedBinders = Object.entries(latestBinders).reduce(
-        (acc, [name, { sets, value }]) => {
-          const oldBinder: Binder = prevBinders[prevDay]?.[name];
+        (acc, [name, { sets, values }]) => {
+          const oldBinder: BinderType = prevBinders[name];
           const updatedSets = sets.map((set) => {
             const oldSet = oldBinder?.sets.find(({ id }) => id === set.id);
             const cards = set.cards.map((card) => {
@@ -62,9 +58,9 @@ export const Binders: FC<BindersProps> = ({
 
               return {
                 ...card,
-                prevValues: [
-                  ...(oldCard?.prevValues || []),
-                  oldCard?.value ?? "0",
+                values: [
+                  ...(oldCard?.values || []),
+                  card.values[card.values.length - 1],
                 ],
               };
             });
@@ -72,7 +68,10 @@ export const Binders: FC<BindersProps> = ({
             return {
               ...set,
               cards,
-              prevValues: [...(oldSet?.prevValues || []), oldSet?.value ?? "0"],
+              values: [
+                ...(oldSet?.values || []),
+                set.values[set.values.length - 1],
+              ],
             };
           });
 
@@ -80,11 +79,7 @@ export const Binders: FC<BindersProps> = ({
             ...acc,
             [name]: {
               sets: updatedSets,
-              value,
-              prevValues: [
-                ...(oldBinder?.prevValues || []),
-                oldBinder?.value ?? "0",
-              ],
+              values: [...(oldBinder?.values || []), values[values.length - 1]],
             },
           };
         },
@@ -95,201 +90,110 @@ export const Binders: FC<BindersProps> = ({
         "binders",
         JSON.stringify({ [today]: updatedBinders }),
       );
-
-      updatedTotals = [...prevTotals, total];
-
-      localStorage.setItem("totals", JSON.stringify(updatedTotals));
     }
 
-    setBinders(updatedBinders ?? prevBinders[prevDay]);
-    setTotals(updatedTotals ?? prevTotals);
-  }, [latestBinders, total]);
+    setBinders(updatedBinders || prevBinders[prevDay]);
+  }, [latestBinders]);
 
   return (
     binders &&
-    totals && (
-      <>
-        <h2>
-          Total:{" "}
-          <span
-            className={clsx(
-              totals.length === 1 || totals[totals.length - 2] === total
-                ? null
-                : totals[totals.length - 2] < total
-                  ? styles.positive
-                  : styles.negative,
-            )}
-          >
-            ${total}
-          </span>
-          {totals.length > 1 && (
-            <>
-              {" "}
-              (prev: ${totals[totals.length - 2]}){" "}
-              <button
-                onClick={() => {
-                  if (!chartData) {
-                    setChartData({
-                      labels: totals.map((_, i) => i).map((i) => i.toString()),
-                      datasets: [
-                        {
-                          label: "Total",
-                          data: totals.map((t) => Number(t)),
-                        },
-                      ],
-                    });
-                  } else {
-                    setChartData(undefined);
-                  }
-                }}
+    (() => {
+      const total = Object.values(binders)
+        .reduce((acc, { values }) => acc + Number(values[values.length - 1]), 0)
+        .toFixed(2);
+      const prevTotal = Object.values(binders)
+        .reduce((acc, { values }) => acc + Number(values[values.length - 2]), 0)
+        .toFixed(2);
+
+      return (
+        <div className={styles.container}>
+          <aside className={styles.aside}>
+            <h1 className={styles.heading}>
+              Total:{" "}
+              <span
+                className={clsx(
+                  isNaN(Number(prevTotal)) || total === prevTotal
+                    ? null
+                    : total < prevTotal
+                      ? styles.positive
+                      : styles.negative,
+                )}
+                title={
+                  isNaN(Number(prevTotal)) || total === prevTotal
+                    ? undefined
+                    : `was ${prevTotal}`
+                }
               >
-                chart
-              </button>
-            </>
-          )}
-        </h2>
-        {chartData && <Line data={chartData} />}
-        <ul>
-          {Object.entries(binders)
-            .sort(
-              ([, { value }], [, { value: bValue }]) =>
-                Number(bValue) - Number(value),
-            )
-            .map(([name, { sets, value, prevValues }]) => (
-              <li key={name}>
-                <h3>
-                  {name}:{" "}
-                  <span
-                    className={clsx(
-                      prevValues?.length === 1 ||
-                        prevValues?.[prevValues.length - 1] === "0" ||
-                        prevValues?.[prevValues.length - 1] === value
-                        ? null
-                        : (prevValues?.[prevValues.length - 1] ?? "0") < value
-                          ? styles.positive
-                          : styles.negative,
-                    )}
-                  >
-                    ${value}
-                  </span>
-                  {prevValues &&
-                    prevValues.length > 1 &&
-                    prevValues[prevValues.length - 1] !== "0" &&
-                    prevValues[prevValues.length - 1] !== value && (
-                      <>
-                        {" "}
-                        (prev: ${prevValues[prevValues.length - 1]}){" "}
-                        <button
-                          onClick={() => {
-                            if (!chartData) {
-                              setChartData({
-                                labels: [
-                                  ...prevValues
-                                    .filter((v) => v !== "0")
-                                    .map((_, i) => i)
-                                    .map((i) => i.toString()),
-                                  "latest",
-                                ],
-                                datasets: [
-                                  {
-                                    label: "Value",
-                                    data: [
-                                      ...prevValues
-                                        .filter((v) => v !== "0")
-                                        .map((v) => Number(v)),
-                                      Number(value),
-                                    ],
-                                  },
-                                ],
-                              });
-                            } else {
-                              setChartData(undefined);
-                            }
-                          }}
-                        >
-                          chart
-                        </button>
-                      </>
-                    )}
-                </h3>
-                <ul>
-                  {sets
-                    .sort((a, b) => Number(b.value) - Number(a.value))
-                    .map(({ cards, id, name, value, prevValues }, i) => (
-                      <li key={`${name}${i}`}>
-                        <strong>
-                          <Link
-                            href={`https://scryfall.com/@opeologist/decks/${id}`}
-                          >
+                ${total}
+              </span>
+            </h1>
+            <nav>
+              <ul className={styles.binders}>
+                {Object.entries(binders)
+                  .sort(
+                    ([, { values }], [, { values: bValues }]) =>
+                      Number(bValues[bValues.length - 1]) -
+                      Number(values[values.length - 1]),
+                  )
+                  .map(([name]) => (
+                    <Binder
+                      key={name}
+                      name={name}
+                      sets={binders[name].sets}
+                      values={binders[name].values}
+                      setSet={setSet}
+                      setChartData={setChartData}
+                    />
+                  ))}
+              </ul>
+            </nav>
+          </aside>
+          <main className={styles.main}>
+            {set && (
+              <div>
+                <h1 className={styles.setName}>{set.name}</h1>
+                <ul className={styles.cards}>
+                  {set.cards
+                    .sort(
+                      (a, b) =>
+                        Number(b.values[b.values.length - 1]) -
+                        Number(a.values[a.values.length - 1]),
+                    )
+                    .map(({ id, name, url, values }, i) => (
+                      <li key={`${id}${i}`} className={styles.card}>
+                        <Image
+                          src={`https://cards.scryfall.io/large/front/${id.substring(0, 1)}/${id.substring(1, 2)}/${id}.jpg`}
+                          alt={name}
+                          width={336}
+                          height={468}
+                          unoptimized
+                          className={styles.cardImage}
+                        />
+                        <div className={styles.cardInfoContainer}>
+                          <Link href={url} target="_blank">
                             {name}
                           </Link>
-                        </strong>{" "}
-                        ({cards.length}):{" "}
-                        <span
-                          className={clsx(
-                            prevValues?.length === 1 ||
-                              prevValues?.[prevValues.length - 1] === "0" ||
-                              prevValues?.[prevValues.length - 1] === value
-                              ? null
-                              : (prevValues?.[prevValues.length - 1] ?? "0") <
-                                  value
-                                ? styles.positive
-                                : styles.negative,
-                          )}
-                        >
-                          ${value}
-                        </span>
-                        {prevValues &&
-                          prevValues.length > 1 &&
-                          prevValues[prevValues.length - 1] !== "0" &&
-                          prevValues[prevValues.length - 1] !== value && (
-                            <>
-                              {" "}
-                              (prev: ${prevValues[prevValues.length - 1]}){" "}
-                              <button
-                                onClick={() => {
-                                  if (!chartData) {
-                                    setChartData({
-                                      labels: [
-                                        ...prevValues
-                                          .filter((v) => v !== "0")
-                                          .map((_, i) => i)
-                                          .map((i) => i.toString()),
-                                        "latest",
-                                      ],
-                                      datasets: [
-                                        {
-                                          label: "Value",
-                                          data: [
-                                            ...prevValues
-                                              .filter((v) => v !== "0")
-                                              .map((v) => Number(v)),
-                                            Number(value),
-                                          ],
-                                        },
-                                      ],
-                                    });
-                                  } else {
-                                    setChartData(undefined);
-                                  }
-                                }}
-                              >
-                                chart
-                              </button>
-                            </>
-                          )}
-                        <Cards
-                          cards={cards}
-                          chartData={chartData}
-                          setChartData={setChartData}
-                        />
+                          <span
+                            title={
+                              isNaN(Number(values[values.length - 2])) ||
+                              values[values.length - 1] ===
+                                values[values.length - 2]
+                                ? undefined
+                                : `was ${values[values.length - 2]}`
+                            }
+                          >
+                            ${Number(values[values.length - 1]).toFixed(2)}
+                          </span>
+                        </div>
                       </li>
                     ))}
                 </ul>
-              </li>
-            ))}
-        </ul>
-      </>
-    )
+              </div>
+            )}
+            {chartData && <Line data={chartData} />}
+          </main>
+        </div>
+      );
+    })()
   );
 };

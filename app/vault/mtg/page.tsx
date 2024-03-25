@@ -1,39 +1,36 @@
 import { parse } from "papaparse";
 import { Binders } from "./Binders";
+import "./MtgPage.css";
 import { decks } from "./decks";
 
 export interface Binders {
-  [key: string]: Binder;
+  [name: string]: Binder;
 }
 
 export interface Binder {
   sets: Set[];
-  value: string;
-  prevValues?: string[];
+  values: string[];
 }
 
-interface Set {
+export interface Set {
   cards: Card[];
   id: string;
   name: string;
-  value: string;
-  prevValues?: string[];
+  values: string[];
 }
 
 export interface Card {
   id: string;
   name: string;
   url: string;
-  value: string;
-  prevValues?: string[];
+  values: string[];
 }
 
 const deckApiUrl = (_: TemplateStringsArray, id: string) =>
   `https://api.scryfall.com/decks/${id}/export/csv`;
 
-export default async function MtgPage() {
+export default async function Mtg2Page() {
   const binders: Binders = {};
-  let total = "0";
 
   await Promise.all(
     decks.map(async ({ id, name, set }) => {
@@ -49,7 +46,7 @@ export default async function MtgPage() {
               cards: [],
               id,
               name: set,
-              value: "0",
+              values: ["0"],
             });
           } else {
             binders[name] = {
@@ -58,32 +55,33 @@ export default async function MtgPage() {
                   cards: [],
                   id,
                   name: set,
-                  value: "0",
+                  values: ["0"],
                 },
               ],
-              value: "0",
+              values: ["0"],
             };
           }
 
           cards.forEach(
-            ([, , cardName, , , , , , , , , , value, , , url, id], i) => {
+            ([, , cardName, , , , , , , , , , value, , , url, cardId], i) => {
               if (i !== 0 && i !== cards.length - 1) {
                 binders[name].sets[binders[name].sets.length - 1].cards.push({
-                  id,
+                  id: cardId,
                   name: cardName,
                   url,
-                  value: Number(value).toFixed(2),
+                  values: [value],
                 });
-                binders[name].sets[binders[name].sets.length - 1].value =
+
+                binders[name].sets[binders[name].sets.length - 1].values[0] =
                   Number(
                     Number(
-                      binders[name].sets[binders[name].sets.length - 1].value,
+                      binders[name].sets[binders[name].sets.length - 1]
+                        .values[0],
                     ) + Number(value),
                   ).toFixed(2);
-                binders[name].value = Number(
-                  Number(Number(binders[name].value)) + Number(value),
+                binders[name].values[0] = Number(
+                  Number(Number(binders[name].values[0])) + Number(value),
                 ).toFixed(2);
-                total = Number(Number(total) + Number(value)).toFixed(2);
               }
             },
           );
@@ -92,10 +90,5 @@ export default async function MtgPage() {
     }),
   );
 
-  return (
-    <main>
-      <h1>MTG</h1>
-      <Binders binders={binders} total={total} />
-    </main>
-  );
+  return <Binders binders={binders} />;
 }

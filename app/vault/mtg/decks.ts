@@ -17,7 +17,7 @@ export const decks = [
   {
     name: "White Folio",
     set: "PWOR",
-    id: "478d6810-0a49-48b5-bc95-920506d895d3",
+    id: "391e827b-b734-483c-9953-6885219aeb2e",
   },
   {
     name: "Green Folio 2",
