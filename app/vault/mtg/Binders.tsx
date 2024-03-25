@@ -107,27 +107,44 @@ export const Binders: FC<BindersProps> = ({ binders: latestBinders }) => {
 
       return (
         <div className={styles.container}>
-          <aside className={styles.aside}>
+          <aside
+            className={clsx([
+              styles.aside,
+              (set || chartData) && styles.hideAside,
+            ])}
+          >
             <h1 className={styles.heading}>
               Total:{" "}
-              <span
-                className={clsx(
-                  isNaN(Number(prevTotal)) || total === prevTotal
-                    ? null
-                    : total < prevTotal
-                      ? styles.positive
-                      : styles.negative,
-                )}
-                title={
-                  isNaN(Number(prevTotal)) || total === prevTotal
-                    ? undefined
-                    : `was ${prevTotal}`
-                }
-              >
-                ${total}
-              </span>
+              {!set && !chartData && (
+                <span
+                  className={clsx(
+                    isNaN(Number(prevTotal)) || total === prevTotal
+                      ? null
+                      : total < prevTotal
+                        ? styles.positive
+                        : styles.negative,
+                  )}
+                  title={
+                    isNaN(Number(prevTotal)) || total === prevTotal
+                      ? undefined
+                      : `was ${prevTotal}`
+                  }
+                >
+                  ${total}
+                </span>
+              )}
+              {(set || chartData) && (
+                <button
+                  onClick={() => {
+                    setSet(undefined);
+                    setChartData(undefined);
+                  }}
+                >
+                  {"<"}
+                </button>
+              )}
             </h1>
-            <nav>
+            <nav className={(set || chartData) && styles.hideNav}>
               <ul className={styles.binders}>
                 {Object.entries(binders)
                   .sort(

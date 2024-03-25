@@ -1,12 +1,25 @@
 .container {
   display: flex;
   height: 100vh;
+  flex-wrap: wrap;
 }
 
 .aside {
   border-right: 0.0625rem solid #e0e0e0;
   overflow-y: auto;
   flex: 0 0 18rem;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: white;
+}
+
+.hideAside {
+  transform: translateX(calc(-100% + 3rem));
+}
+
+.hideNav {
+  display: none;
 }
 
 .heading {
@@ -18,7 +31,7 @@
 .main {
   overflow-y: auto;
   flex: 1;
-  padding: 1rem;
+  padding: 1rem 1rem 1rem 4rem;
   display: flex;
   justify-content: center;
 }

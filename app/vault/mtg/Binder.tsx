@@ -51,14 +51,7 @@ export const Binder: FC<BinderProps> = ({
             ${Number(values[values.length - 1]).toFixed(2)}
           </span>
         </span>
-        <button
-          onClick={() => {
-            setSet(undefined);
-            setChartData(undefined);
-            setOpened(!opened);
-          }}
-          className={styles.button}
-        >
+        <button onClick={() => setOpened(!opened)} className={styles.button}>
           {opened ? "-" : "+"}
         </button>
       </div>
