@@ -5,6 +5,7 @@ import clsx from "clsx";
 import Link from "next/link";
 import { useState, type Dispatch, type FC, type SetStateAction } from "react";
 import styles from "./Binder.module.css";
+import bindersStyles from "./Binders.module.css";
 import type { Binder as BinderType, Set } from "./page";
 
 interface BinderProps extends BinderType {
@@ -43,8 +44,8 @@ export const Binder: FC<BinderProps> = ({
                 values[values.length - 1] === values[values.length - 2]
                 ? null
                 : values[values.length - 2] < values[values.length - 1]
-                  ? styles.positive
-                  : styles.negative,
+                  ? bindersStyles.positive
+                  : bindersStyles.negative,
             )}
           >
             ${Number(values[values.length - 1]).toFixed(2)}
@@ -98,8 +99,8 @@ export const Binder: FC<BinderProps> = ({
                             ? null
                             : values[values.length - 2] <
                                 values[values.length - 1]
-                              ? styles.positive
-                              : styles.negative,
+                              ? bindersStyles.positive
+                              : bindersStyles.negative,
                         )}
                       >
                         ${Number(values[values.length - 1]).toFixed(2)}
