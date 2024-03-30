@@ -50,7 +50,7 @@ export const Binders: FC<BindersProps> = ({ binders: latestBinders }) => {
     if (prevDay !== today) {
       updatedBinders = Object.entries(latestBinders).reduce(
         (acc, [name, { sets, values }]) => {
-          const oldBinder: BinderType = prevBinders[prevDay][name];
+          const oldBinder: BinderType = prevBinders[prevDay]?.[name];
           const updatedSets = sets.map((set) => {
             const oldSet = oldBinder?.sets.find(({ id }) => id === set.id);
             const cards = set.cards.map((card) => {
