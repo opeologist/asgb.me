@@ -50,7 +50,7 @@ export const Binders: FC<BindersProps> = ({ binders: latestBinders }) => {
     if (prevDay !== today) {
       updatedBinders = Object.entries(latestBinders).reduce(
         (acc, [name, { sets, values }]) => {
-          const oldBinder: BinderType = prevBinders[name];
+          const oldBinder: BinderType = prevBinders[prevDay][name];
           const updatedSets = sets.map((set) => {
             const oldSet = oldBinder?.sets.find(({ id }) => id === set.id);
             const cards = set.cards.map((card) => {
@@ -117,17 +117,37 @@ export const Binders: FC<BindersProps> = ({ binders: latestBinders }) => {
               Total:{" "}
               {!set && !chartData && (
                 <span
-                  className={clsx(
+                  className={clsx([
                     isNaN(Number(prevTotal)) || total === prevTotal
                       ? null
-                      : total < prevTotal
+                      : prevTotal < total
                         ? styles.positive
                         : styles.negative,
-                  )}
+                    styles.price,
+                  ])}
                   title={
                     isNaN(Number(prevTotal)) || total === prevTotal
                       ? undefined
                       : `was ${prevTotal}`
+                  }
+                  onClick={() =>
+                    setChartData({
+                      datasets: [
+                        {
+                          data: binders[Object.keys(binders)[0]].values.map(
+                            (_, i) =>
+                              Object.values(binders).reduce(
+                                (acc, { values }) => acc + Number(values[i]),
+                                0,
+                              ),
+                          ),
+                          label: "Total",
+                        },
+                      ],
+                      labels: binders[Object.keys(binders)[0]].values.map(
+                        (_, i) => i,
+                      ),
+                    })
                   }
                 >
                   ${total}
@@ -136,8 +156,11 @@ export const Binders: FC<BindersProps> = ({ binders: latestBinders }) => {
               {(set || chartData) && (
                 <button
                   onClick={() => {
-                    setSet(undefined);
-                    setChartData(undefined);
+                    if (chartData) {
+                      setChartData(undefined);
+                    } else {
+                      setSet(undefined);
+                    }
                   }}
                 >
                   {"<"}
@@ -166,7 +189,7 @@ export const Binders: FC<BindersProps> = ({ binders: latestBinders }) => {
             </nav>
           </aside>
           <main className={styles.main}>
-            {set && (
+            {set && !chartData && (
               <div>
                 <h1 className={styles.setName}>{set.name}</h1>
                 <ul className={styles.cards}>
@@ -191,6 +214,16 @@ export const Binders: FC<BindersProps> = ({ binders: latestBinders }) => {
                             {name}
                           </Link>
                           <span
+                            className={clsx(
+                              isNaN(Number(values[values.length - 2])) ||
+                                values[values.length - 1] ===
+                                  values[values.length - 2]
+                                ? null
+                                : values[values.length - 2] <
+                                    values[values.length - 1]
+                                  ? styles.positive
+                                  : styles.negative,
+                            )}
                             title={
                               isNaN(Number(values[values.length - 2])) ||
                               values[values.length - 1] ===
@@ -201,6 +234,21 @@ export const Binders: FC<BindersProps> = ({ binders: latestBinders }) => {
                           >
                             ${Number(values[values.length - 1]).toFixed(2)}
                           </span>
+                          <button
+                            onClick={() =>
+                              setChartData({
+                                datasets: [
+                                  {
+                                    data: values.map((value) => Number(value)),
+                                    label: name,
+                                  },
+                                ],
+                                labels: values.map((_, i) => i),
+                              })
+                            }
+                          >
+                            chart
+                          </button>
                         </div>
                       </li>
                     ))}

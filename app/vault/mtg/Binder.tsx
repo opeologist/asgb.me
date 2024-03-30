@@ -39,14 +39,26 @@ export const Binder: FC<BinderProps> = ({
         >
           <strong>{name}</strong>:{" "}
           <span
-            className={clsx(
+            className={clsx([
               isNaN(Number(values[values.length - 2])) ||
-                values[values.length - 1] === values[values.length - 2]
+              values[values.length - 1] === values[values.length - 2]
                 ? null
                 : values[values.length - 2] < values[values.length - 1]
                   ? bindersStyles.positive
                   : bindersStyles.negative,
-            )}
+              bindersStyles.price,
+            ])}
+            onClick={() =>
+              setChartData({
+                datasets: [
+                  {
+                    data: values.map((value) => Number(value)),
+                    label: name,
+                  },
+                ],
+                labels: values.map((_, i) => i),
+              })
+            }
           >
             ${Number(values[values.length - 1]).toFixed(2)}
           </span>
@@ -85,45 +97,34 @@ export const Binder: FC<BinderProps> = ({
                     >
                       :{" "}
                       <span
-                        className={clsx(
+                        className={clsx([
                           isNaN(Number(values[values.length - 2])) ||
-                            values[values.length - 1] ===
-                              values[values.length - 2]
+                          values[values.length - 1] ===
+                            values[values.length - 2]
                             ? null
                             : values[values.length - 2] <
                                 values[values.length - 1]
                               ? bindersStyles.positive
                               : bindersStyles.negative,
-                        )}
+                          bindersStyles.price,
+                        ])}
+                        onClick={() =>
+                          setChartData({
+                            datasets: [
+                              {
+                                data: values.map((value) => Number(value)),
+                                label: name,
+                              },
+                            ],
+                            labels: values.map((_, i) => i),
+                          })
+                        }
                       >
                         ${Number(values[values.length - 1]).toFixed(2)}
                       </span>
                     </span>
                   </span>
-                  <button
-                    onClick={() => {
-                      setChartData(undefined);
-                      setSet(set);
-                    }}
-                  >
-                    cards
-                  </button>
-                  <button
-                    onClick={() => {
-                      setSet(undefined);
-                      setChartData({
-                        datasets: [
-                          {
-                            data: values.map((value) => Number(value)),
-                            label: name,
-                          },
-                        ],
-                        labels: values.map((_, i) => i),
-                      });
-                    }}
-                  >
-                    chart
-                  </button>
+                  <button onClick={() => setSet(set)}>cards</button>
                 </li>
               );
             })}
