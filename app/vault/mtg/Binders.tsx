@@ -214,16 +214,17 @@ export const Binders: FC<BindersProps> = ({ binders: latestBinders }) => {
                             {name}
                           </Link>
                           <span
-                            className={clsx(
+                            className={clsx([
                               isNaN(Number(values[values.length - 2])) ||
-                                values[values.length - 1] ===
-                                  values[values.length - 2]
+                              values[values.length - 1] ===
+                                values[values.length - 2]
                                 ? null
                                 : values[values.length - 2] <
                                     values[values.length - 1]
                                   ? styles.positive
                                   : styles.negative,
-                            )}
+                              styles.price,
+                            ])}
                             title={
                               isNaN(Number(values[values.length - 2])) ||
                               values[values.length - 1] ===
@@ -231,10 +232,6 @@ export const Binders: FC<BindersProps> = ({ binders: latestBinders }) => {
                                 ? undefined
                                 : `was ${values[values.length - 2]}`
                             }
-                          >
-                            ${Number(values[values.length - 1]).toFixed(2)}
-                          </span>
-                          <button
                             onClick={() =>
                               setChartData({
                                 datasets: [
@@ -247,8 +244,8 @@ export const Binders: FC<BindersProps> = ({ binders: latestBinders }) => {
                               })
                             }
                           >
-                            chart
-                          </button>
+                            ${Number(values[values.length - 1]).toFixed(2)}
+                          </span>
                         </div>
                       </li>
                     ))}
