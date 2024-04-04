@@ -11,6 +11,7 @@ import {
   Title,
   Tooltip,
 } from "chart.js";
+import chartTrendline from "chartjs-plugin-trendline";
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
@@ -32,6 +33,7 @@ ChartJS.register(
   Title,
   Tooltip,
   Legend,
+  chartTrendline,
 );
 
 export const Binders: FC<BindersProps> = ({ binders: latestBinders }) => {
@@ -142,6 +144,8 @@ export const Binders: FC<BindersProps> = ({ binders: latestBinders }) => {
                               ),
                           ),
                           label: "Total",
+                          // @ts-expect-error
+                          trendlineLinear: {},
                         },
                       ],
                       labels: binders[Object.keys(binders)[0]].values.map(
@@ -238,6 +242,8 @@ export const Binders: FC<BindersProps> = ({ binders: latestBinders }) => {
                                   {
                                     data: values.map((value) => Number(value)),
                                     label: name,
+                                    // @ts-expect-error
+                                    trendlineLinear: {},
                                   },
                                 ],
                                 labels: values.map((_, i) => i),
@@ -252,7 +258,27 @@ export const Binders: FC<BindersProps> = ({ binders: latestBinders }) => {
                 </ul>
               </div>
             )}
-            {chartData && <Line data={chartData} />}
+            {chartData && (
+              <Line
+                data={chartData}
+                options={{
+                  scales: {
+                    y: {
+                      min:
+                        chartData.datasets[0].data.reduce(
+                          (acc, value) => Math.min(acc, value),
+                          Infinity,
+                        ) - 5,
+                      max:
+                        chartData.datasets[0].data.reduce(
+                          (acc, value) => Math.max(acc, value),
+                          -Infinity,
+                        ) + 5,
+                    },
+                  },
+                }}
+              />
+            )}
           </main>
         </div>
       );

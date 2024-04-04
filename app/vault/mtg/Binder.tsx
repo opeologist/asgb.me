@@ -54,6 +54,8 @@ export const Binder: FC<BinderProps> = ({
                   {
                     data: values.map((value) => Number(value)),
                     label: name,
+                    // @ts-expect-error
+                    trendlineLinear: {},
                   },
                 ],
                 labels: values.map((_, i) => i),
@@ -114,6 +116,8 @@ export const Binder: FC<BinderProps> = ({
                               {
                                 data: values.map((value) => Number(value)),
                                 label: name,
+                                // @ts-expect-error
+                                trendlineLinear: {},
                               },
                             ],
                             labels: values.map((_, i) => i),
