@@ -139,4 +139,9 @@ export const decks = [
     set: "MKM",
     id: "c4e711c2-d3a2-4736-80b6-927fbb664bdc",
   },
+  {
+    name: "Black Folio",
+    set: "OTJ",
+    id: "3b3145fd-c935-457c-a374-97955f785936",
+  },
 ];

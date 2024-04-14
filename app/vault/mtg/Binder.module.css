@@ -20,6 +20,7 @@
   display: flex;
   gap: 1rem;
   justify-content: space-between;
+  margin-left: 1rem;
 }
 
 .setInfoContainer {
