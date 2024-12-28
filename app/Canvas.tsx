@@ -88,7 +88,7 @@ const ProceduralTerrain: React.FC<TerrainProps> = ({
   return (
     <mesh ref={meshRef}>
       <planeGeometry args={[cols * cellSize, rows * cellSize, cols, rows]} />
-      <meshStandardMaterial wireframe color="white" />
+      <meshStandardMaterial wireframe color="green" />
     </mesh>
   );
 };

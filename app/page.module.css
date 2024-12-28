@@ -5,3 +5,16 @@
   justify-content: center;
   align-items: center;
 }
+
+.h1 {
+  margin: 0 1rem 0.5rem;
+  line-height: 1;
+}
+
+.h1::before {
+  content: "ASGB";
+  margin-right: 1rem;
+  padding-right: 1rem;
+  border-right: 0.125rem solid var(--foreground);
+  display: inline-block;
+}
