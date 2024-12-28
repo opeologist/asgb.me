@@ -20,6 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="data:," />
+      </head>
       <body className={openSans.variable}>{children}</body>
     </html>
   );
