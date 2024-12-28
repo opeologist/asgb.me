@@ -1,6 +1,6 @@
 "use client";
 
-import { PerspectiveCamera, Stats } from "@react-three/drei";
+import { PerspectiveCamera } from "@react-three/drei";
 import { Canvas as ThreeCanvas, useFrame } from "@react-three/fiber";
 import {
   DepthOfField,
@@ -114,7 +114,6 @@ export default function Canvas() {
           />
           <Noise opacity={0.1} />
         </EffectComposer>
-        <Stats />
       </ThreeCanvas>
     </div>
   );
