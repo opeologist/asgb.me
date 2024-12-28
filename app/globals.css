@@ -5,7 +5,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #0a0a1e;
     --foreground: #ededed;
   }
 }
@@ -22,6 +22,7 @@ body {
   font-family: var(--font-open-sans), Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  box-shadow: inset 0 0 500px 50px #0a0a1e;
 }
 
 * {
