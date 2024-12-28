@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: 1rem;
+  margin: 0 1rem;
 }
 
 .h1 {
@@ -31,8 +31,14 @@
   fill: var(--foreground);
 }
 
-@media (max-width: 32.5rem) {
+@media (max-width: 33.5rem) {
   .h1::before {
     display: none;
+  }
+}
+
+@media (min-width: 41.5625rem) {
+  .main {
+    margin: 0 5rem;
   }
 }

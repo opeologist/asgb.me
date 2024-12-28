@@ -3,6 +3,13 @@
   --dark: #0a0a1e;
   --background: var(--light);
   --foreground: var(--dark);
+  font-size: 14px;
+}
+
+@media (min-width: 420px) {
+  :root {
+    font-size: 16px;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
