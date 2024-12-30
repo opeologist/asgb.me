@@ -1,3 +1,4 @@
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import type { ReactNode } from "react";
@@ -23,7 +24,10 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="data:," />
       </head>
-      <body className={openSans.variable}>{children}</body>
+      <body className={openSans.variable}>
+        {children}
+        <SpeedInsights />
+      </body>
     </html>
   );
 }

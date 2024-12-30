@@ -1,6 +1,8 @@
+import dynamic from "next/dynamic";
 import Link from "next/link";
-import Canvas from "./Canvas";
 import styles from "./page.module.css";
+
+const Canvas = dynamic(() => import("./Canvas"));
 
 export default function Home() {
   return (
