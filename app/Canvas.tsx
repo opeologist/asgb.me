@@ -64,6 +64,9 @@ const ProceduralTerrain: React.FC<TerrainProps> = ({
 
     setVertices(newVertices);
   };
+  const rootStyles = globalThis.getComputedStyle(
+    globalThis.document.documentElement,
+  );
 
   useFrame((_, delta) => {
     elapsedTime += delta * 1000; // Convert delta to milliseconds
@@ -88,7 +91,10 @@ const ProceduralTerrain: React.FC<TerrainProps> = ({
   return (
     <mesh ref={meshRef}>
       <planeGeometry args={[cols * cellSize, rows * cellSize, cols, rows]} />
-      <meshStandardMaterial wireframe color="green" />
+      <meshStandardMaterial
+        wireframe
+        color={rootStyles.getPropertyValue("--foreground")}
+      />
     </mesh>
   );
 };
