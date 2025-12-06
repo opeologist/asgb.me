@@ -14,18 +14,17 @@
     "@react-three/fiber": "^9.3.0",
     "@react-three/postprocessing": "^3.0.4",
     "@vercel/speed-insights": "^1.2.0",
-    "next": "15.5.2",
+    "next": "^16.0.7",
     "react": "^19",
     "react-dom": "^19",
     "three": "^0.179.1"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "eslint": "^8",
-    "eslint-config-next": "15.5.2",
+    "eslint": "^9",
+    "eslint-config-next": "^16.0.7",
     "prettier": "^3.4.2",
     "prettier-plugin-organize-imports": "^4.1.0",
     "typescript": "^5"
