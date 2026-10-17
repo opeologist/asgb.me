@@ -4,6 +4,11 @@
   flex-direction: column;
   justify-content: center;
   margin: 0 1rem;
+  /* Tight halo that knocks out the traces right behind the text */
+  text-shadow:
+    0 0 0.125rem var(--background),
+    0 0 0.375rem var(--background),
+    0 0 0.75rem var(--background);
 }
 
 .h1 {
@@ -19,6 +24,10 @@
   display: inline-block;
 }
 
+.nowrap {
+  white-space: nowrap;
+}
+
 .nav {
   display: flex;
   gap: 1rem;
@@ -29,6 +38,8 @@
   width: 1.5rem;
   height: 1.5rem;
   fill: var(--foreground);
+  filter: drop-shadow(0 0 0.125rem var(--background))
+    drop-shadow(0 0 0.375rem var(--background));
 }
 
 @media (max-width: 33.5rem) {

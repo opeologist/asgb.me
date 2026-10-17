@@ -1,6 +1,6 @@
 :root {
   --light: #f5fcff;
-  --dark: #0a0a1e;
+  --dark: #0c0812;
   --background: var(--light);
   --foreground: var(--dark);
   font-size: 14px;

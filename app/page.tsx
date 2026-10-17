@@ -8,7 +8,10 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <h1 className={styles.h1}>Aaron S. Giordano-Barry</h1>
-      <h2>Sr. Software Engineer @ Wizards</h2>
+      <h2>
+        Sr. Software Engineer{" "}
+        <span className={styles.nowrap}>@ Hasbro / Wizards</span>
+      </h2>
       <nav className={styles.nav}>
         <Link href="https://www.linkedin.com/in/asgb">
           <svg
